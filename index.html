@@ -1,25 +1,12 @@
-<?php
-  session_start();
-
-  require 'database.php';
-
-  if (isset($_SESSION['user_id'])) {
-    $records = $conn->prepare('SELECT id, email, password FROM users WHERE id = :id');
-    $records->bindParam(':id', $_SESSION['user_id']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
-
-    $user = null;
-
-    if (count($results) > 0) {
-      $user = $results;
-    }
-  }
-?>
-
-<!DOCTYPE html>
-<html>
-  <head>
+<!doctype html>
+<!--
+	Fox by FreeHTML5.co
+	Twitter: https://twitter.com/fh5co
+	Facebook: https://fb.com/fh5co
+	URL: https://freehtml5.co
+-->
+<html lang="en">
+<head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,24 +18,8 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-  <body>
-    <?php if(!empty($user)): ?>
-      <br> Welcome. <?= $user['email']; ?>
-      <br>You are Successfully Logged In
-      <a href="logout.php">
-        Logout
-      </a>
-      
-      <!-- Body si Logueo -->
-      
-    <?php else: ?>
-    
-    
-      <h1>Please Login or SignUp</h1>
-      <a href="login.php">Login</a> or
-      <a href="signup.php">SignUp</a>
-      
-      <div class="container-fluid pl-0 pr-0 bg-img clearfix parallax-window2" data-parallax="scroll" data-image-src="images/banner2.jpg">
+<body>
+<div class="container-fluid pl-0 pr-0 bg-img clearfix parallax-window2" data-parallax="scroll" data-image-src="images/banner2.jpg">
   <nav class="navbar navbar-expand-md navbar-dark">
     <div class="container"> 
       <!-- Brand --> 
@@ -306,10 +277,6 @@
 <script src="js/parallax.js"></script>
 <script src="js/wow.js"></script>
 <script src="js/main.js"></script>
-      
-    <?php endif; ?>
-    
-    
-    
-  </body>
+
+</body>
 </html>
