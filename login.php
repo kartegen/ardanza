@@ -1,42 +1,41 @@
 <?php
+
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-    header('Location: /php-login');
+    header('Location: /login.php');
 }
-require '/servicios/database.php';
+require 'database.php';
 
-if (! empty($_POST['email']) && ! empty($_POST['password'])) {
-    $records = $conn->prepare('SELECT id, email, password FROM users WHERE email = :email');
+if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['password'])) {
+    $records = $conn->prepare('SELECT id, email, password, tipo FROM users WHERE email = :email');
     $records->bindParam(':email', $_POST['email']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
-
+    
     $message = '';
-
+    echo '<script language="javascript">alert("Indentificado");window.location.href="index.php"</script>';
+    
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
         $_SESSION['user_id'] = $results['id'];
-        header("Location: /php-login");
+        header("Location: /index.php");
     } else {
-        $message = 'Sorry, those credentials do not match';
+        echo '<script language="javascript">alert("Error de autentificacion");window.location.href="login.php"</script>';
     }
 }
 
 ?>
+
 <!doctype html>
-<!--
-	Fox by FreeHTML5.co
-	Twitter: https://twitter.com/fh5co
-	Facebook: https://fb.com/fh5co
-	URL: https://freehtml5.co
--->
-<html lang="en">
+<html lang="es">
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>ARDANZA - Centro de Formaci�n Danc�stica y Cultural</title>
+<meta http-equiv=â€�Content-Typeâ€� content=â€�text/html;
+	charset=UTF-8â€³ />
+<title>ARDANZA - Centro de FormaciÃ³n DancÃ­stica y Cultural</title>
 
 <!-- Bootstrap CSS -->
 <link href="css/animate.css" rel="stylesheet">
@@ -46,97 +45,74 @@ if (! empty($_POST['email']) && ! empty($_POST['password'])) {
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
-    <?php endif; ?>
+	<div class="container-fluid pl-0 pr-0 bg-img clearfix parallax-window2"
+		data-parallax="scroll" data-image-src="images/banner2.jpg">
+		<nav class="navbar navbar-expand-md navbar-dark">
+			<div class="container">
+				<!-- Brand -->
+				<a class="navbar-brand mr-auto" href="/index.php"><img src="images/logo.png"
+					alt="Ardanza" /></a>
 
-    <h1>Login</h1>
-	<span>or <a href="signup.php">SignUp</a></span>
-<div class="container-fluid pl-0 pr-0 bg-img clearfix parallax-window2" data-parallax="scroll" data-image-src="images/banner2.jpg">
-  <nav class="navbar navbar-expand-md navbar-dark">
-    <div class="container"> 
-      <!-- Brand --> 
-      <a class="navbar-brand mr-auto" href="#"><img src="images/logo.png" alt="FoxPro" /></a> 
-      
-      <!-- Toggler/collapsibe Button -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"> <span class="navbar-toggler-icon"></span> </button>
-      
-      <!-- Navbar links -->
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav ml-auto">
-         <!--   <li class="nav-item"> <a class="nav-link" href="#pageTop">Inicio</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#about-us">Nosotros</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#curses">Instructores</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#contact">Contacto</a> </li>-->
-        </ul>
-        <ul class="navbar-nav ml-5">
-          <li class="nav-item"> <a class="nav-link btn btn-danger" href="#">Login</a> </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  </div>
-	
-	
+				<!-- Toggler/collapsibe Button -->
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#collapsibleNavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button> 
+
+				<!-- Navbar links -->
+				<div class="collapse navbar-collapse" id="collapsibleNavbar">
+					<ul class="navbar-nav ml-auto">
+						
+          <li class="nav-item"> <a class="nav-link" href="/index.php">Inicio</a> </li>
+					
+						
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+
 	<form action="login.php" method="POST">
-		<footer class="container-fluid">
+		<footer class="col-md-6 container-fluid">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12 footer2 wow bounceInUp" data-wow-delay=".25s"
+					<div class="col-md-3 footer2 wow bounceInUp" data-wow-delay=".25s"
+						id="contact"></div>
+					<div class="col-md-6 footer2 wow bounceInUp" data-wow-delay=".25s"
 						id="contact">
-						
+
 						<div class="form-box">
-							<h4>REGISTRO CURSOS</h4>
+							<h4>INICIA SESION</h4>
 							<table class="table table-responsive d-table">
 								<tr>
-									<td><input type="text" class="form-control pl-0"
-										placeholder="NOMBRE ALUMNO" /></td>
-									<td><input type="email" class="form-control pl-0"
-										placeholder="EMAIL" /></td>
-								</tr>
-								<tr>
-									<td colspan="2"><input type="text" class="form-control pl-0"
-										placeholder="NOMBRE DEL PADRE O TUTOR" /></td>
-								</tr>
-								<tr>
-									<td><input type="text" class="form-control pl-0"
-										placeholder="MUNICIPIO" /></td>
-									<td><input type="email" class="form-control pl-0"
-										placeholder="ESTADO" /></td>
-								</tr>
-								<tr>
-									<td colspan="2"><input type="text" class="form-control pl-0"
-										placeholder="DIRECCION" /></td>
-								</tr>
-								<tr>
-									<td colspan="2"><input type="text" class="form-control pl-0"
-										placeholder="TELEFONO" /></td>
-								</tr>
-								<tr>
-									<td colspan="2">
-										<h4 class="card-title">Curso</h4> <select id="curso"
-										name="curso">
-											<option value="1">Infantil � Let�s dance (6 a 11 a�os)</option>
-											<option value="2">Neon Steps Now (12 a�os en adelante)</option>
-											<option value="3">Professional Workspace</option>
-											<option value="4">Otro</option>
-									</select>
-									</td>
+									<td colspan="2"><input type="text" name="email" class="form-control pl-0"
+										placeholder="NOMBRE DE USUARIO" /></td>
 								</tr>
 								<tr>
 									<td colspan="2"><hr></td>
 								</tr>
 								<tr>
-									<td colspan="2" class="text-center pl-0"><button type="submit"
-											class="btn btn-dark">ENVIAR</button></td>
+									<td colspan="2"><input name="password" type="password" class="form-control pl-0"
+										placeholder="CONTRASEÑA" /></td>
+								</tr>
+
+								<tr>
+									<td colspan="2"><hr></td>
+								</tr>
+								<tr>
+									<td colspan="2" class="text-center pl-0">
+									<button type="submit" value="Submit"class="btn btn-dark">ENVIAR</button></td>
 								</tr>
 							</table>
 						</div>
 					</div>
+					<div class="col-md-3 footer2 wow bounceInUp" data-wow-delay=".25s"
+						id="contact"></div>
 
 				</div>
 			</div>
+			
 		</footer>
 	</form>
 </body>

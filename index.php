@@ -1,29 +1,40 @@
 <?php
-  session_start();
+session_start();
 
-  require '/servicios/database.php';
+require 'database.php';
 
-  if (isset($_SESSION['user_id'])) {
-    $records = $conn->prepare('SELECT id, email, password FROM users WHERE id = :id');
+if (isset($_SESSION['user_id'])) {
+    $records = $conn->prepare('SELECT id, email, tipo, password FROM users WHERE id = :id');
     $records->bindParam(':id', $_SESSION['user_id']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
-
+    
+    
     $user = null;
-
+    
     if (count($results) > 0) {
-      $user = $results;
+        $user = $results;
+        
     }
-  }
+    
+    if($user['tipo']=="1"){
+        echo '<script language="javascript">alert("Manda a administracion");window.location.href="#"</script>';
+    }elseif ($user['tipo']=="2"){
+        echo '<script language="javascript">alert("Manda a clases");window.location.href="#"</script>';
+        
+    }elseif ($user['tipo']=="3"){
+        echo '<script language="javascript">alert("Manda a cursos");window.location.href="#"</script>';
+    }
+}
 ?>
 
-<!DOCTYPE html>
-<html>
+<ht<html lang="es">
   <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>ARDANZA - Centro de Formación Dancística y Cultural</title>
+  <meta http-equiv=â€Content-Typeâ€ content=â€text/html; charset=UTF-8â€³ />
+  <title>ARDANZA - Centro de FormaciÃ³n DancÃ­stica y Cultural</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/animate.css" rel="stylesheet">
@@ -32,12 +43,12 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
   <body>
+  
+  <!-- Prueba de loguea -->
+  
     <?php if(!empty($user)): ?>
-      <br> Welcome. <?= $user['email']; ?>
-      <br>You are Successfully Logged In
-      <a href="logout.php">
-        Logout
-      </a>
+      
+      <!-- Fin de prueba de logueo -->
       <div class="container-fluid pl-0 pr-0 bg-img clearfix parallax-window2" data-parallax="scroll" data-image-src="images/banner2.jpg">
   <nav class="navbar navbar-expand-md navbar-dark">
     <div class="container"> 
@@ -56,7 +67,8 @@
           <li class="nav-item"> <a class="nav-link" href="#contact">Contacto</a> </li>
         </ul>
         <ul class="navbar-nav ml-5">
-          <li class="nav-item"> <a class="nav-link btn btn-danger" href="/servicios/login.php">Login</a> </li>
+       		<li class="nav-item"> <a class="nav-link" > - Bienvenido <?= $user['email'];?>-</a> </li>
+          <li class="nav-item"> <a class="nav-link btn btn-danger" href="/logout.php">Logout</a> </li>
         </ul>
       </div>
     </div>
@@ -67,8 +79,8 @@
         <h2> ARDANZA <br><span>Danza y cultura</span> </h2>
       </div>
       	<a data-toggle="modal" data-target="#modalCurso" class="btn text-uppercase btn-outline-danger btn-lg mr-3 mb-3 wow bounceInUp"> Registro cursos </a> 
- 		<a data-toggle="modal" data-target="#modalClase" class="btn text-uppercase btn-outline-danger btn-lg mb-3 wow bounceInDown"> Ingreso clases </a> </div>
- 
+ 		<a href="logout.php" class="btn text-uppercase btn-outline-danger btn-lg mb-3 wow bounceInDown"> Cerrar sesion </a> </div>
+ <tr>
  <div class="modal fade" id="modalCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -108,8 +120,8 @@
               <td colspan="2">
               <h4 class="card-title">Curso</h4>
               	<select id="curso" name="curso">
-			      <option value="1">Infantil – Let’s dance (6 a 11 años)</option>
-			      <option value="2">Neon Steps Now (12 años en adelante)</option>
+			      <option value="1">Infantil â€“ Letâ€™s dance (6 a 11 aÃ±os)</option>
+			      <option value="2">Neon Steps Now (12 aÃ±os en adelante)</option>
 			      <option value="3">Professional Workspace</option>
 			      <option value="4">Otro</option>
    				</select>
@@ -142,7 +154,7 @@
         <h2 class="wow bounceInRight">SIN DATOS</h2>
         <hr />
         <h5 class="wow bounceInLeft">Subtitulo 1</h5>
-        <p class="wow bounceInDown">Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancísticas a través de la metodología teórico-práctica. &amp;  Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancísticas a través de la metodología teórico-práctica.</p>
+        <p class="wow bounceInDown">Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancÃ­sticas a travÃ©s de la metodologÃ­a teÃ³rico-prÃ¡ctica. &amp;  Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancÃ­sticas a travÃ©s de la metodologÃ­a teÃ³rico-prÃ¡ctica.</p>
       </div>
       <div class="col-md-6">
         <figure class="wow bounceInDown"> <img src="images/about-img.jpg" alt="gym" class="img-fluid" /> </figure>
@@ -155,7 +167,7 @@
     <div class="col-sm-6 offset-sm-6">
       <h2 class="wow bounceInLeft" data-wow-delay=".25s">SOBRE NOSOTROS</h2>
       <hr/>
-      <p class="wow bounceInRight" data-wow-delay=".25s">Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancísticas a través de la metodología teórico-práctica.</p>
+      <p class="wow bounceInRight" data-wow-delay=".25s">Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancÃ­sticas a travÃ©s de la metodologÃ­a teÃ³rico-prÃ¡ctica.</p>
       <!--  <a class="btn btn-lg btn-outline-danger d-inline-block text-center mx-auto wow bounceInDown">Learn More</a> --></div>
   </div>
 </div>
@@ -166,7 +178,7 @@
       <div class="col-md-7 pl-0">
         <div class="wow bounceInRight" data-wow-delay=".25s">
           <div class="card-img-overlay">          
-            <p>Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancísticas a través de la metodología teórico-práctica. </p>
+            <p>Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancÃ­sticas a travÃ©s de la metodologÃ­a teÃ³rico-prÃ¡ctica. </p>
           </div>
           <img src="images/gym-girls.jpg" alt="girls in gym" class="img-fluid" /> </div>
       </div>
@@ -199,9 +211,9 @@
       <div class="col-md-3">
         <div class="card"><img class="card-img-top img-fluid wow bounceInRight" data-wow-delay=".25s" src="images/g1.jpg" alt="Card image">
           <div class="card-body mb-4 wow bounceInLeft" data-wow-delay=".25s">
-            <h4 class="card-title">Infantil – Let’s dance (6 a 11 años)</h4>
-            <p class="card-text">El programa Infantil – Let’s dance de Ardanza está diseñado para pequeños de 6 a 11 años de edad, que tengan interés en adquirir bases formativas y técnicas en diversos estilos desde muy temprana edad. Nuestro Programa ONLINE te permite tener clases personalizadas en la comodidad de tu casa, cuidando tu salud y la de tus seres queridos con Instructores profesionales en la Danza.</P>
-			<p class="card-text">El objetivo principal es crear conciencia del movimiento corporal, la correcta alineación, fuerza y tonificación muscular, así mismo sentar las bases para desarrollar fluidez en el movimiento, estimulando la coordinación y el desarrollo de las capacidades motoras por medio de los diversos estilos de la danza.
+            <h4 class="card-title">Infantil â€“ Letâ€™s dance (6 a 11 aÃ±os)</h4>
+            <p class="card-text">El programa Infantil â€“ Letâ€™s dance de Ardanza estÃ¡ diseÃ±ado para pequeÃ±os de 6 a 11 aÃ±os de edad, que tengan interÃ©s en adquirir bases formativas y tÃ©cnicas en diversos estilos desde muy temprana edad. Nuestro Programa ONLINE te permite tener clases personalizadas en la comodidad de tu casa, cuidando tu salud y la de tus seres queridos con Instructores profesionales en la Danza.</P>
+			<p class="card-text">El objetivo principal es crear conciencia del movimiento corporal, la correcta alineaciÃ³n, fuerza y tonificaciÃ³n muscular, asÃ­ mismo sentar las bases para desarrollar fluidez en el movimiento, estimulando la coordinaciÃ³n y el desarrollo de las capacidades motoras por medio de los diversos estilos de la danza.
             </p>
             <p class="card-text"></p>
           </div>
@@ -210,9 +222,9 @@
       <div class="col-md-3">
         <div class="card"> <img class="card-img-top img-fluid wow bounceInUp" data-wow-delay=".25s" src="images/g2.jpg" alt="Card image">
           <div class="card-body mt-4 wow bounceInDown" data-wow-delay=".25s">
-            <h4 class="card-title">Neon Steps Now (12 años en adelante)</h4>
-             	<p class="card-text">El programa Neon Steps Now de Ardanza está diseñado para jóvenes de 12 años en adelante, que tengan interés en adquirir bases formativas y técnicas en diversos estilos. Nuestro Programa ONLINE te permite tener clases personalizadas en la comodidad de tu casa, cuidando tu salud y la de tus seres queridos con Instructores profesionales en la Danza.</p>
-          		<p class="card-text">Nuestro objetivo principal es desarrollar en los alumnos(as) la capacidad de expresarse corporal y artísticamente de una manera creativa, a través de la enseñanza de las bases técnicas de la danza logrando obtener conocimientos de una correcta alineación corporal, desarrollo de la fuerza y tonificación muscular, desarrollar fluidez en el movimiento, estimular la coordinación y desarrollo de las capacidades motoras a través del acercamiento a diversos estilos de la danza.</p>
+            <h4 class="card-title">Neon Steps Now (12 aÃ±os en adelante)</h4>
+             	<p class="card-text">El programa Neon Steps Now de Ardanza estÃ¡ diseÃ±ado para jÃ³venes de 12 aÃ±os en adelante, que tengan interÃ©s en adquirir bases formativas y tÃ©cnicas en diversos estilos. Nuestro Programa ONLINE te permite tener clases personalizadas en la comodidad de tu casa, cuidando tu salud y la de tus seres queridos con Instructores profesionales en la Danza.</p>
+          		<p class="card-text">Nuestro objetivo principal es desarrollar en los alumnos(as) la capacidad de expresarse corporal y artÃ­sticamente de una manera creativa, a travÃ©s de la enseÃ±anza de las bases tÃ©cnicas de la danza logrando obtener conocimientos de una correcta alineaciÃ³n corporal, desarrollo de la fuerza y tonificaciÃ³n muscular, desarrollar fluidez en el movimiento, estimular la coordinaciÃ³n y desarrollo de las capacidades motoras a travÃ©s del acercamiento a diversos estilos de la danza.</p>
           </div>
         </div>
       </div>
@@ -239,8 +251,8 @@
     <div class="row">
       <div class="col-md-3 footer1 d-flex wow bounceInLeft" data-wow-delay=".25s">
         <div class="d-flex flex-wrap align-content-center"> <a href="#"><img src="images/logo.png" alt="logo" /></a>
-          <p>Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancísticas a través de la metodología teórico-práctica.</p>
-          <p>&copy; 2020 RED.deploy<br> Diseño  <a href="https://www.facebook.com/luis.rodriguezmedellin/" target="_blank">FreeHTML5</a>.</p>
+          <p>Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancÃ­sticas a travÃ©s de la metodologÃ­a teÃ³rico-prÃ¡ctica.</p>
+          <p>&copy; 2020 RED.deploy<br> DiseÃ±o  <a href="https://www.facebook.com/luis.rodriguezmedellin/" target="_blank">FreeHTML5</a>.</p>
         </div>
       </div>
       <div class="col-md-6 footer2 wow bounceInUp" data-wow-delay=".25s" id="contact">
@@ -273,8 +285,8 @@
         </div>
       </div>
       <div class="col-md-3 footer3 wow bounceInRight" data-wow-delay=".25s">
-        <h5>DIRECCIÓN</h5>
-        <p>Av. Sierra Madre No. 202, local D , Esq. Sierra Nevada, Fracc. Colinas del Padre 4ta sección 98085 Zacatecas, México</p>
+        <h5>DIRECCIÃ“N</h5>
+        <p>Av. Sierra Madre No. 202, local D , Esq. Sierra Nevada, Fracc. Colinas del Padre 4ta secciÃ³n 98085 Zacatecas, MÃ©xico</p>
         <h5>TELEFONO</h5>
         <p>4921285833</p>
         <h5>EMAIL</h5>
@@ -297,7 +309,7 @@
 <script src="js/parallax.js"></script>
 <script src="js/wow.js"></script>
 <script src="js/main.js"></script>
-      <!-- Body si Logueo -->
+<!-- Body sin Logueo -->
       
     <?php else: ?>
     
@@ -324,7 +336,7 @@
           <li class="nav-item"> <a class="nav-link" href="#contact">Contacto</a> </li>
         </ul>
         <ul class="navbar-nav ml-5">
-          <li class="nav-item"> <a class="nav-link btn btn-danger" href="/servicios/login.php">Login</a> </li>
+          <li class="nav-item"> <a class="nav-link btn btn-danger" href="login.php"> LOGIN </a> </li>
         </ul>
       </div>
     </div>
@@ -335,7 +347,7 @@
         <h2> ARDANZA <br><span>Danza y cultura</span> </h2>
       </div>
       	<a data-toggle="modal" data-target="#modalCurso" class="btn text-uppercase btn-outline-danger btn-lg mr-3 mb-3 wow bounceInUp"> Registro cursos </a> 
- 		<a data-toggle="modal" data-target="#modalClase" class="btn text-uppercase btn-outline-danger btn-lg mb-3 wow bounceInDown"> Ingreso clases </a> </div>
+ 		<a href="login.php" class="btn text-uppercase btn-outline-danger btn-lg mr-3 mb-3 wow bounceInUp"> Ingreso clases </a> </div>
  <div class="modal fade" id="modalCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -375,8 +387,8 @@
               <td colspan="2">
               <h4 class="card-title">Curso</h4>
               	<select id="curso" name="curso">
-			      <option value="1">Infantil – Let’s dance (6 a 11 años)</option>
-			      <option value="2">Neon Steps Now (12 años en adelante)</option>
+			      <option value="1">Infantil â€“ Letâ€™s dance (6 a 11 aÃ±os)</option>
+			      <option value="2">Neon Steps Now (12 aÃ±os en adelante)</option>
 			      <option value="3">Professional Workspace</option>
 			      <option value="4">Otro</option>
    				</select>
@@ -409,7 +421,7 @@
         <h2 class="wow bounceInRight">SIN DATOS</h2>
         <hr />
         <h5 class="wow bounceInLeft">Subtitulo 1</h5>
-        <p class="wow bounceInDown">Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancísticas a través de la metodología teórico-práctica. &amp;  Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancísticas a través de la metodología teórico-práctica.</p>
+        <p class="wow bounceInDown">Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancÃ­sticas a travÃ©s de la metodologÃ­a teÃ³rico-prÃ¡ctica. &amp;  Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancÃ­sticas a travÃ©s de la metodologÃ­a teÃ³rico-prÃ¡ctica.</p>
       </div>
       <div class="col-md-6">
         <figure class="wow bounceInDown"> <img src="images/about-img.jpg" alt="gym" class="img-fluid" /> </figure>
@@ -422,7 +434,7 @@
     <div class="col-sm-6 offset-sm-6">
       <h2 class="wow bounceInLeft" data-wow-delay=".25s">SOBRE NOSOTROS</h2>
       <hr/>
-      <p class="wow bounceInRight" data-wow-delay=".25s">Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancísticas a través de la metodología teórico-práctica.</p>
+      <p class="wow bounceInRight" data-wow-delay=".25s">Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancÃ­sticas a travÃ©s de la metodologÃ­a teÃ³rico-prÃ¡ctica.</p>
       <!--  <a class="btn btn-lg btn-outline-danger d-inline-block text-center mx-auto wow bounceInDown">Learn More</a> --></div>
   </div>
 </div>
@@ -433,7 +445,7 @@
       <div class="col-md-7 pl-0">
         <div class="wow bounceInRight" data-wow-delay=".25s">
           <div class="card-img-overlay">          
-            <p>Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancísticas a través de la metodología teórico-práctica. </p>
+            <p>Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancÃ­sticas a travÃ©s de la metodologÃ­a teÃ³rico-prÃ¡ctica. </p>
           </div>
           <img src="images/gym-girls.jpg" alt="girls in gym" class="img-fluid" /> </div>
       </div>
@@ -466,9 +478,9 @@
       <div class="col-md-3">
         <div class="card"><img class="card-img-top img-fluid wow bounceInRight" data-wow-delay=".25s" src="images/g1.jpg" alt="Card image">
           <div class="card-body mb-4 wow bounceInLeft" data-wow-delay=".25s">
-            <h4 class="card-title">Infantil – Let’s dance (6 a 11 años)</h4>
-            <p class="card-text">El programa Infantil – Let’s dance de Ardanza está diseñado para pequeños de 6 a 11 años de edad, que tengan interés en adquirir bases formativas y técnicas en diversos estilos desde muy temprana edad. Nuestro Programa ONLINE te permite tener clases personalizadas en la comodidad de tu casa, cuidando tu salud y la de tus seres queridos con Instructores profesionales en la Danza.</P>
-			<p class="card-text">El objetivo principal es crear conciencia del movimiento corporal, la correcta alineación, fuerza y tonificación muscular, así mismo sentar las bases para desarrollar fluidez en el movimiento, estimulando la coordinación y el desarrollo de las capacidades motoras por medio de los diversos estilos de la danza.
+            <h4 class="card-title">Infantil â€“ Letâ€™s dance (6 a 11 aÃ±os)</h4>
+            <p class="card-text">El programa Infantil â€“ Letâ€™s dance de Ardanza estÃ¡ diseÃ±ado para pequeÃ±os de 6 a 11 aÃ±os de edad, que tengan interÃ©s en adquirir bases formativas y tÃ©cnicas en diversos estilos desde muy temprana edad. Nuestro Programa ONLINE te permite tener clases personalizadas en la comodidad de tu casa, cuidando tu salud y la de tus seres queridos con Instructores profesionales en la Danza.</P>
+			<p class="card-text">El objetivo principal es crear conciencia del movimiento corporal, la correcta alineaciÃ³n, fuerza y tonificaciÃ³n muscular, asÃ­ mismo sentar las bases para desarrollar fluidez en el movimiento, estimulando la coordinaciÃ³n y el desarrollo de las capacidades motoras por medio de los diversos estilos de la danza.
             </p>
             <p class="card-text"></p>
           </div>
@@ -477,9 +489,9 @@
       <div class="col-md-3">
         <div class="card"> <img class="card-img-top img-fluid wow bounceInUp" data-wow-delay=".25s" src="images/g2.jpg" alt="Card image">
           <div class="card-body mt-4 wow bounceInDown" data-wow-delay=".25s">
-            <h4 class="card-title">Neon Steps Now (12 años en adelante)</h4>
-             	<p class="card-text">El programa Neon Steps Now de Ardanza está diseñado para jóvenes de 12 años en adelante, que tengan interés en adquirir bases formativas y técnicas en diversos estilos. Nuestro Programa ONLINE te permite tener clases personalizadas en la comodidad de tu casa, cuidando tu salud y la de tus seres queridos con Instructores profesionales en la Danza.</p>
-          		<p class="card-text">Nuestro objetivo principal es desarrollar en los alumnos(as) la capacidad de expresarse corporal y artísticamente de una manera creativa, a través de la enseñanza de las bases técnicas de la danza logrando obtener conocimientos de una correcta alineación corporal, desarrollo de la fuerza y tonificación muscular, desarrollar fluidez en el movimiento, estimular la coordinación y desarrollo de las capacidades motoras a través del acercamiento a diversos estilos de la danza.</p>
+            <h4 class="card-title">Neon Steps Now (12 aÃ±os en adelante)</h4>
+             	<p class="card-text">El programa Neon Steps Now de Ardanza estÃ¡ diseÃ±ado para jÃ³venes de 12 aÃ±os en adelante, que tengan interÃ©s en adquirir bases formativas y tÃ©cnicas en diversos estilos. Nuestro Programa ONLINE te permite tener clases personalizadas en la comodidad de tu casa, cuidando tu salud y la de tus seres queridos con Instructores profesionales en la Danza.</p>
+          		<p class="card-text">Nuestro objetivo principal es desarrollar en los alumnos(as) la capacidad de expresarse corporal y artÃ­sticamente de una manera creativa, a travÃ©s de la enseÃ±anza de las bases tÃ©cnicas de la danza logrando obtener conocimientos de una correcta alineaciÃ³n corporal, desarrollo de la fuerza y tonificaciÃ³n muscular, desarrollar fluidez en el movimiento, estimular la coordinaciÃ³n y desarrollo de las capacidades motoras a travÃ©s del acercamiento a diversos estilos de la danza.</p>
           </div>
         </div>
       </div>
@@ -506,8 +518,8 @@
     <div class="row">
       <div class="col-md-3 footer1 d-flex wow bounceInLeft" data-wow-delay=".25s">
         <div class="d-flex flex-wrap align-content-center"> <a href="#"><img src="images/logo.png" alt="logo" /></a>
-          <p>Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancísticas a través de la metodología teórico-práctica.</p>
-          <p>&copy; 2020 RED.deploy<br> Diseño  <a href="https://www.facebook.com/luis.rodriguezmedellin/" target="_blank">FreeHTML5</a>.</p>
+          <p>Desarrollar e impulsar a bailarines por medio de diversas disciplinas dancÃ­sticas a travÃ©s de la metodologÃ­a teÃ³rico-prÃ¡ctica.</p>
+          <p>&copy; 2020 RED.deploy<br> DiseÃ±o  <a href="https://www.facebook.com/luis.rodriguezmedellin/" target="_blank">FreeHTML5</a>.</p>
         </div>
       </div>
       <div class="col-md-6 footer2 wow bounceInUp" data-wow-delay=".25s" id="contact">
@@ -540,8 +552,8 @@
         </div>
       </div>
       <div class="col-md-3 footer3 wow bounceInRight" data-wow-delay=".25s">
-        <h5>DIRECCIÓN</h5>
-        <p>Av. Sierra Madre No. 202, local D , Esq. Sierra Nevada, Fracc. Colinas del Padre 4ta sección 98085 Zacatecas, México</p>
+        <h5>DIRECCIÃ“N</h5>
+        <p>Av. Sierra Madre No. 202, local D , Esq. Sierra Nevada, Fracc. Colinas del Padre 4ta secciÃ³n 98085 Zacatecas, MÃ©xico</p>
         <h5>TELEFONO</h5>
         <p>4921285833</p>
         <h5>EMAIL</h5>
