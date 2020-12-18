@@ -1,2 +1,0 @@
-# ardanza
-danza y cultura

@@ -4,14 +4,17 @@
 
   $message = '';
 
-  if (!empty($_POST['email']) && !empty($_POST['password'])) {
-    $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':email', $_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $stmt->bindParam(':password', $password);
+  if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['tipo'])) {
+      $sql = "INSERT INTO users (email, password, tipo) VALUES (:email, :password, :tipo)";
+      $stmt = $conn->prepare($sql);
+      $stmt->bindParam(':email', $_POST['email']);
+      $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+      $stmt->bindParam(':password', $password);
+      $stmt->bindParam(':tipo', $_POST['tipo']);
     if ($stmt->execute()) {
         echo '<script language="javascript">alert("Registro exitoso");window.location.href="index.php"</script>';
+        
+        
     } else {
         echo '<script language="javascript">alert("Error de registro");window.location.href="signup.php"</script>';
     }
@@ -56,7 +59,7 @@
 				</button> 	<!-- Navbar links -->
 				<div class="collapse navbar-collapse" id="collapsibleNavbar">
 					<ul class="navbar-nav ml-auto">
-					<li class="nav-item"> <a class="nav-link" href="/index.php">Inicio</a> </li>
+					<li class="nav-item"> <a class="nav-link"  href="/index.php">Inicio</a> </li>
 					<li class="nav-item"> <a class="nav-link" href="/login.php">Login</a> </li>	
 					</ul>
 				</div>
@@ -89,7 +92,7 @@
 									class="form-control pl-0" placeholder="CONTRASEÑA" /></td>
 							</tr>
 							<tr>
-								<td colspan="2"><select id="tipoUsuario" name="tipoUsuario">
+								<td colspan="2"><select id="tipo" name="tipo">
 										<option value="1">Administrador</option>
 										<option value="2">Estudiante clses</option>
 										<option value="3">Estudiante cursos</option>

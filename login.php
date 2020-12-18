@@ -14,7 +14,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['passw
     $results = $records->fetch(PDO::FETCH_ASSOC);
     
     $message = '';
-    echo '<script language="javascript">alert("Indentificado");window.location.href="index.php"</script>';
     
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
         $_SESSION['user_id'] = $results['id'];
@@ -62,6 +61,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['passw
 				<!-- Navbar links -->
 				<div class="collapse navbar-collapse" id="collapsibleNavbar">
 					<ul class="navbar-nav ml-auto">
+					<li class="nav-item"> <a class="nav-link" href="/signup.php">Regisro nuevo clientet</a> </li>
 						
           <li class="nav-item"> <a class="nav-link" href="/index.php">Inicio</a> </li>
 					
