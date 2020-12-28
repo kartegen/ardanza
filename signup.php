@@ -4,13 +4,14 @@
 
   $message = '';
 
-  if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['tipo'])) {
-      $sql = "INSERT INTO users (email, password, tipo) VALUES (:email, :password, :tipo)";
+  if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['tipo'])&& !empty($_POST['estatus'])) {
+      $sql = "INSERT INTO users (email, password, tipo, estatus) VALUES (:email, :password, :tipo, :estatus)";
       $stmt = $conn->prepare($sql);
       $stmt->bindParam(':email', $_POST['email']);
       $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
       $stmt->bindParam(':password', $password);
       $stmt->bindParam(':tipo', $_POST['tipo']);
+      $stmt->bindParam(':tipo', $_POST['estatus']);
     if ($stmt->execute()) {
         echo '<script language="javascript">alert("Registro exitoso");window.location.href="index.php"</script>';
         
@@ -27,7 +28,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv=îContent-Typeî content=îtext/html; charset=UTF-8? />
+<meta http-equiv=ÔøΩContent-TypeÔøΩ content=ÔøΩtext/html; charset=UTF-8? />
 <title>ARDANZA - Centro de Formaci√≥nn Danc√≠stica y Cultural</title>
 
 <!-- Bootstrap CSS -->
@@ -93,8 +94,16 @@
 							<tr>
 								<td colspan="2"><select id="tipo" name="tipo">
 										<option value="1">Administrador</option>
-										<option value="2">Estudiante clses</option>
+										<option value="2">Estudiante clases</option>
 										<option value="3">Estudiante cursos</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td colspan="2"><select id="estatus" name="tipo">
+										<option value="1">admin</option>
+										<option value="adeudo">adeuda</option>
+										<option value="noAdeudo">no adeuda</option>
+										<option value="4">cursos</option>
 								</select></td>
 							</tr>
 							<tr>

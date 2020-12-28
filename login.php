@@ -32,8 +32,8 @@ if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['passw
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8? />
-<title>ARDANZA - Centro de Formación Dancística y Cultural</title>
+<meta http-equiv=ï¿½Content-Typeï¿½ content=ï¿½text/html; charset=UTF-8? />
+<title>ARDANZA - Centro de FormaciÃ³n DancÃ­stica y Cultural</title>
 
 <!-- Bootstrap CSS -->
 <link href="css/animate.css" rel="stylesheet">
@@ -50,13 +50,11 @@ if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['passw
 				<!-- Brand -->
 				<a class="navbar-brand mr-auto" href="/index.php"><img src="images/logo.png"
 					alt="Ardanza" /></a>
-
 				<!-- Toggler/collapsibe Button -->
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#collapsibleNavbar">
 					<span class="navbar-toggler-icon"></span>
-				</button> 
-
+				</button>
 				<!-- Navbar links -->
 				<div class="collapse navbar-collapse" id="collapsibleNavbar">
 					<ul class="navbar-nav ml-auto">	
@@ -66,8 +64,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['passw
 			</div>
 		</nav>
 	</div>
-
-
 	<form action="login.php" method="POST">
 		<footer class="col-md-6 container-fluid">
 			<div class="container">
@@ -91,7 +87,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['passw
 									<td colspan="2"><input name="password" type="password" class="form-control pl-0"
 										placeholder="CONTRASEÃ‘A" /></td>
 								</tr>
-
 								<tr>
 									<td colspan="2"><hr></td>
 								</tr>

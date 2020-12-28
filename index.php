@@ -23,8 +23,8 @@ if (isset($_SESSION['user_id'])) {
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv=�Content-Type� content=�text/html; charset=utf-8? />
-<title>ARDANZA - Centro de Formaci�n Danc�stica y Cultural</title>
+<meta http-equiv=�Content-Type� content=�text/html; charset=utf-8? />
+<title>ARDANZA - Centro de Formación Dancística y Cultural</title>
 
 <!-- SWAL -->
 <link rel="stylesheet"
@@ -63,17 +63,14 @@ if (isset($_SESSION['user_id'])) {
 				swal("ADEUDO", "En un momento te redireccionamos", "warning")
 				window.location.href = "adeudo.php";				
 			}
-			   alerta2();
-			   
+			   alerta2();			   
        		</script>';
 			}else{
 
 				echo '<script>
-       		function alerta2(){
-				
+       		function alerta2(){				
 				swal("BIENVENIDO ALUMNO", "En un momento te redireccionamos", "success")
-				window.location.href = "clase.php";
-				
+				window.location.href = "clase.php";				
 			}
        		alerta2();
        		</script>';
@@ -230,10 +227,12 @@ if (isset($_SESSION['user_id'])) {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<h4 class="wow bounceInUp">Seccion sin datos</h4>
-					<h2 class="wow bounceInRight">SIN DATOS</h2>
+					<h4 class="wow bounceInUp">ARDANZA</h4>
+					<h2 class="wow bounceInRight">Desarrollar e impulsar a bailarines por
+						medio de diversas disciplinas dancísticas a través de la
+						metodología teórico-práctica.</h2>
 					<hr />
-					<h5 class="wow bounceInLeft">Subtitulo 1</h5>
+					<h5 class="wow bounceInLeft">ARDANZA</h5>
 					<p class="wow bounceInDown">Desarrollar e impulsar a bailarines por
 						medio de diversas disciplinas dancísticas a través de la
 						metodología teórico-práctica. &amp; Desarrollar e impulsar a
