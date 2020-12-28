@@ -32,9 +32,8 @@ if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['passw
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv=â€�Content-Typeâ€� content=â€�text/html;
-	charset=UTF-8â€³ />
-<title>ARDANZA - Centro de FormaciÃ³n DancÃ­stica y Cultural</title>
+<meta http-equiv=�Content-Type� content=�text/html; charset=UTF-8? />
+<title>ARDANZA - Centro de Formaci�n Danc�stica y Cultural</title>
 
 <!-- Bootstrap CSS -->
 <link href="css/animate.css" rel="stylesheet">
@@ -60,12 +59,8 @@ if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['passw
 
 				<!-- Navbar links -->
 				<div class="collapse navbar-collapse" id="collapsibleNavbar">
-					<ul class="navbar-nav ml-auto">
-					<li class="nav-item"> <a class="nav-link" href="/signup.php">Regisro nuevo clientet</a> </li>
-						
-          <li class="nav-item"> <a class="nav-link" href="/index.php">Inicio</a> </li>
-					
-						
+					<ul class="navbar-nav ml-auto">	
+          			<li class="nav-item"> <a class="nav-link" href="/index.php">Inicio</a> </li>
 					</ul>
 				</div>
 			</div>

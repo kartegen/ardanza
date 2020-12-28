@@ -20,11 +20,10 @@ if (isset($_SESSION['user_id'])) {
 <html lang="es">
 <head>
 <!-- Required meta tags -->
-<meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv=�Content-Type� content=�text/html; charset=utf-8? />
-<title>ARDANZA - Centro de Formaci�n Danc�stica y Cultural</title>
+<meta http-equiv=�Content-Type� content=�text/html; charset=UTF-8? />
+<title>ARDANZA - Centro de Formación Dancística y Cultural</title>
 
 <!-- SWAL -->
 <link rel="stylesheet"
@@ -41,65 +40,8 @@ if (isset($_SESSION['user_id'])) {
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-	<!-- Prueba de loguea -->
-  
-    <?php if(!empty($user)): ?>
-    
-   <?php
-
-        if ($user['tipo'] == "1") {
-            echo '<script>
-       function alerta(){
-           swal("BIENVENIDO ADMINISTRADOR", "En un momento te redireccionamos", "success")
-            window.location.href = "/admin";
-       }
-       alerta();
-       </script>';
-        } elseif ($user['tipo'] == "2") {
-			if ($user['estatus']=="adeudo"){
-				echo '<script>
-       		function alerta2(){
-				swal("ADEUDO", "En un momento te redireccionamos", "warning")
-				window.location.href = "adeudo.php";				
-			}
-			   alerta2();
-			   
-       		</script>';
-			}else{
-
-				echo '<script>
-       		function alerta2(){
-				
-				swal("BIENVENIDO ALUMNO", "En un momento te redireccionamos", "success")
-				window.location.href = "clase.php";
-				
-			}
-       		alerta2();
-       		</script>';
-			}
-            
-        } elseif ($user['tipo'] == "3") {
-            '<script>
-       function alerta3(){
-		   swal("BIENVENIDO ALUMNO", "En un momento te redireccionamos", "success")
-		   window.location.href = "curso.php";
-       }
-       alerta3()
-       </script>';
-        }else{
-			'<script>
-       function alerta3(){
-		   swal("OCURRIO UN ERROR", "En un momento te redireccionamos", "ERROR")
-		   window.location.href = "login.php";
-       }
-       alerta3()
-       </script>';
-
-		}
-        ?>
-      
-      <!-- Fin de prueba de logueo -->
+<?php if(!empty($user)): ?>
+     <!-- Fin de prueba de logueo -->
 	<div class="container-fluid pl-0 pr-0 bg-img clearfix parallax-window2"
 		data-parallax="scroll" data-image-src="images/banner2.jpg">
 		<nav class="navbar navbar-expand-md navbar-dark">
@@ -115,17 +57,7 @@ if (isset($_SESSION['user_id'])) {
 				</button>
 
 				<!-- Navbar links -->
-				<div class="collapse navbar-collapse" id="collapsibleNavbar">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="#pageTop">Inicio</a>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="#about-us">Nosotros</a>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="#curses">Instructores</a>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="#contact">Contacto</a>
-						</li>
-					</ul>
+				<div class="collapse navbar-collapse" id="collapsibleNavbar">					
 					<ul class="navbar-nav ml-5">
 						<li class="nav-item"><a class="nav-link"> - Bienvenido <?= $user['email'];?>-</a>
 						</li>
@@ -136,253 +68,29 @@ if (isset($_SESSION['user_id'])) {
 			</div>
 		</nav>
 		<div class="container">
-			<div class="fh5co-banner-text-box">
-				<div class="quote-box pl-5 pr-5 wow bounceInRight">
-					<h2>
-						ARDANZA <br> <span>Danza y cultura</span>
-					</h2>
-				</div>
-				<a data-toggle="modal" data-target="#modalCurso"
-					class="btn text-uppercase btn-outline-danger btn-lg mr-3 mb-3 wow bounceInUp">
-					Registro cursos </a> <a href="logout.php"
-					class="btn text-uppercase btn-outline-danger btn-lg mb-3 wow bounceInDown">
-					Cerrar sesion </a>
-			</div>
-			<tr>
-				<div class="modal fade" id="modalCurso" tabindex="-1" role="dialog"
-					aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<!-- Contenido ventana modal -->
 
-							</div>
-							<footer class="container-fluid">
 
-								<div class="container">
-									<div class="row">
-										<div class="col-md-12 footer2 wow bounceInUp"
-											data-wow-delay=".25s" id="contact">
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-											<div class="form-box">
-												<h4>REGISTRO CURSOS</h4>
-												<table class="table table-responsive d-table">
-													<tr>
-														<td><input type="text" class="form-control pl-0"
-															placeholder="NOMBRE ALUMNO" /></td>
-														<td><input type="email" class="form-control pl-0"
-															placeholder="EMAIL" /></td>
-													</tr>
-													<tr>
-														<td colspan="2"><input type="text"
-															class="form-control pl-0"
-															placeholder="NOMBRE DEL PADRE O TUTOR" /></td>
-													</tr>
-													<tr>
-														<td><input type="text" class="form-control pl-0"
-															placeholder="MUNICIPIO" /></td>
-														<td><input type="email" class="form-control pl-0"
-															placeholder="ESTADO" /></td>
-													</tr>
-													<tr>
-														<td colspan="2"><input type="text"
-															class="form-control pl-0" placeholder="DIRECCION" /></td>
-													</tr>
-													<tr>
-														<td colspan="2"><input type="text"
-															class="form-control pl-0" placeholder="TELEFONO" /></td>
-													</tr>
-													<tr>
-														<td colspan="2">
-															<h4 class="card-title">Curso</h4> <select id="curso"
-															name="curso">
-																<option value="1">Infantil – Let’s dance (6 a 11 años)</option>
-																<option value="2">Neon Steps Now (12 años en adelante)</option>
-																<option value="3">Professional Workspace</option>
-																<option value="4">Otro</option>
-														</select>
-														</td>
-													</tr>
-													<tr>
-														<td colspan="2"><hr></td>
-													</tr>
-													<tr>
-														<td colspan="2" class="text-center pl-0"><button
-																type="submit" class="btn btn-dark">ENVIAR</button></td>
-													</tr>
-												</table>
-											</div>
-										</div>
 
-									</div>
-								</div>
-							</footer>
-						</div>
-					</div>
-				</div>
-		
-		</div>
+
+
+
+
+		<div>
 	</div>
-	<div class="container-fluid fh5co-network">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<h4 class="wow bounceInUp">Seccion sin datos</h4>
-					<h2 class="wow bounceInRight">SIN DATOS</h2>
-					<hr />
-					<h5 class="wow bounceInLeft">Subtitulo 1</h5>
-					<p class="wow bounceInDown">Desarrollar e impulsar a bailarines por
-						medio de diversas disciplinas dancísticas a través de la
-						metodología teórico-práctica. &amp; Desarrollar e impulsar a
-						bailarines por medio de diversas disciplinas dancísticas a través
-						de la metodología teórico-práctica.</p>
-				</div>
-				<div class="col-md-6">
-					<figure class="wow bounceInDown">
-						<img src="images/about-img.jpg" alt="gym" class="img-fluid" />
-					</figure>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<div id="about-us"
 		class="container-fluid fh5co-about-us pl-0 pr-0 parallax-window"
 		data-parallax="scroll" data-image-src="images/about-us-bg.jpg">
 		<div class="container">
 			<div class="col-sm-6 offset-sm-6">
-				<h2 class="wow bounceInLeft" data-wow-delay=".25s">SOBRE NOSOTROS</h2>
+				<h2 class="wow bounceInLeft" data-wow-delay=".25s">PONTE AL CORRIENTE</h2>
 				<hr />
-				<p class="wow bounceInRight" data-wow-delay=".25s">Desarrollar e
-					impulsar a bailarines por medio de diversas disciplinas dancísticas
-					a través de la metodología teórico-práctica.</p>
+				<p class="wow bounceInRight" data-wow-delay=".25s">Introduce tus datos y tu comprobante de pago, esto nos informara para revisar tu estatus</p>
 				<!--  <a class="btn btn-lg btn-outline-danger d-inline-block text-center mx-auto wow bounceInDown">Learn More</a> -->
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid fh5co-content-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-5 pr-0">
-					<img src="images/rode-gym.jpg" alt="gym"
-						class="img-fluid wow bounceInLeft" />
-				</div>
-				<div class="col-md-7 pl-0">
-					<div class="wow bounceInRight" data-wow-delay=".25s">
-						<div class="card-img-overlay">
-							<p>Desarrollar e impulsar a bailarines por medio de diversas
-								disciplinas dancísticas a través de la metodología
-								teórico-práctica.</p>
-						</div>
-						<img src="images/gym-girls.jpg" alt="girls in gym"
-							class="img-fluid" />
-					</div>
-				</div>
-			</div>
-			<div class="row trainers pl-0 pr-0" data-wow-delay=".25s" id="curses">
-				<div class="col-12 bg-50">
-					<div class="quote-box2 wow bounceInDown" data-wow-delay=".25s">
-						<h2>INSTRUCTORES</h2>
-					</div>
-				</div>
-				<div class="col-md-6 pr-5 pl-5">
-					<div class="card text-center wow bounceInLeft"
-						data-wow-delay=".25s">
-						<img class="card-img-top rounded-circle img-fluid"
-							src="images/trainers1.jpg" alt="Card image">
-						<div class="card-body mb-5">
-							<h4 class="card-title">instructor 1</h4>
-
-							<p class="card-text">Detalles del instructor</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 pl-5 pr-5">
-					<div class="card text-center wow bounceInRight"
-						data-wow-delay=".25s">
-						<img class="card-img-top rounded-circle img-fluid"
-							src="images/trainers2.jpg" alt="Card image">
-						<div class="card-body mb-5">
-							<h4 class="card-title">Instructor 2</h4>
-							<p class="card-text">Detalles del instructor</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row gallery">
-				<div class="col-md-3">
-					<div class="card">
-						<img class="card-img-top img-fluid wow bounceInRight"
-							data-wow-delay=".25s" src="images/g1.jpg" alt="Card image">
-						<div class="card-body mb-4 wow bounceInLeft" data-wow-delay=".25s">
-							<h4 class="card-title">Infantil – Let’s dance (6 a 11 años)</h4>
-							<p class="card-text">El programa Infantil – Let’s dance de
-								Ardanza está diseñado para pequeños de 6 a 11 años de edad, que
-								tengan interés en adquirir bases formativas y técnicas en
-								diversos estilos desde muy temprana edad. Nuestro Programa
-								ONLINE te permite tener clases personalizadas en la comodidad de
-								tu casa, cuidando tu salud y la de tus seres queridos con
-								Instructores profesionales en la Danza.</P>
-							<p class="card-text">El objetivo principal es crear conciencia
-								del movimiento corporal, la correcta alineación, fuerza y
-								tonificación muscular, así mismo sentar las bases para
-								desarrollar fluidez en el movimiento, estimulando la
-								coordinación y el desarrollo de las capacidades motoras por
-								medio de los diversos estilos de la danza.</p>
-							<p class="card-text"></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="card">
-						<img class="card-img-top img-fluid wow bounceInUp"
-							data-wow-delay=".25s" src="images/g2.jpg" alt="Card image">
-						<div class="card-body mt-4 wow bounceInDown" data-wow-delay=".25s">
-							<h4 class="card-title">Neon Steps Now (12 años en adelante)</h4>
-							<p class="card-text">El programa Neon Steps Now de Ardanza está
-								diseñado para jóvenes de 12 años en adelante, que tengan interés
-								en adquirir bases formativas y técnicas en diversos estilos.
-								Nuestro Programa ONLINE te permite tener clases personalizadas
-								en la comodidad de tu casa, cuidando tu salud y la de tus seres
-								queridos con Instructores profesionales en la Danza.</p>
-							<p class="card-text">Nuestro objetivo principal es desarrollar en
-								los alumnos(as) la capacidad de expresarse corporal y
-								artísticamente de una manera creativa, a través de la enseñanza
-								de las bases técnicas de la danza logrando obtener conocimientos
-								de una correcta alineación corporal, desarrollo de la fuerza y
-								tonificación muscular, desarrollar fluidez en el movimiento,
-								estimular la coordinación y desarrollo de las capacidades
-								motoras a través del acercamiento a diversos estilos de la
-								danza.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="card">
-						<img class="card-img-top img-fluid wow bounceInLeft"
-							data-wow-delay=".25s" src="images/g3.jpg" alt="Card image">
-						<div class="card-body mb-4 wow bounceInRight"
-							data-wow-delay=".25s">
-							<h4 class="card-title">Professional Workspace</h4>
-							<p class="card-text">Detalles del curso</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="card">
-						<img class="card-img-top img-fluid wow bounceInUp"
-							data-wow-delay=".25s" src="images/g2.jpg" alt="Card image">
-						<div class="card-body mt-4 wow bounceInDown" data-wow-delay=".25s">
-							<h4 class="card-title">Lifestyle</h4>
-							<p class="card-text">Detalles del curso</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<footer class="container-fluid">
 		<div class="container">
 			<div class="row">
@@ -403,7 +111,7 @@ if (isset($_SESSION['user_id'])) {
 				<div class="col-md-6 footer2 wow bounceInUp" data-wow-delay=".25s"
 					id="contact">
 					<div class="form-box">
-						<h4>CONTACTANOS</h4>
+						<h4>PAGO</h4>
 						<table class="table table-responsive d-table">
 							<tr>
 								<td><input type="text" class="form-control pl-0"
@@ -416,7 +124,7 @@ if (isset($_SESSION['user_id'])) {
 							</tr>
 							<tr>
 								<td colspan="2"><input type="text" class="form-control pl-0"
-									placeholder="DIRECCION" /></td>
+									placeholder="MENSAJE" /></td>
 							</tr>
 							<tr>
 								<td colspan="2"></td>
@@ -437,9 +145,9 @@ if (isset($_SESSION['user_id'])) {
 				</div>
 				<div class="col-md-3 footer3 wow bounceInRight"
 					data-wow-delay=".25s">
-					<h5>DIRECCIÓN</h5>
+					<h5>DIRECCI�N</h5>
 					<p>Av. Sierra Madre No. 202, local D , Esq. Sierra Nevada, Fracc.
-						Colinas del Padre 4ta sección 98085 Zacatecas, México</p>
+						Colinas del Padre 4ta secci�n 98085 Zacatecas, M�xico</p>
 					<h5>TELEFONO</h5>
 					<p>4921285833</p>
 					<h5>EMAIL</h5>

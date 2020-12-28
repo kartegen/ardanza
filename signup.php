@@ -27,8 +27,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv=â€�Content-Typeâ€� content=â€�text/html;
-	charset=UTF-8â€³ />
+<meta http-equiv=�Content-Type� content=�text/html; charset=UTF-8? />
 <title>ARDANZA - Centro de Formaciónn Dancística y Cultural</title>
 
 <!-- Bootstrap CSS -->
