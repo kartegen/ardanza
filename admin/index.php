@@ -18,150 +18,137 @@ if (isset($_SESSION['user_id'])) {
 ?>
 <?php if(!empty($user)): ?>
 <!doctype html>
-<html><head>
-    <meta charset="utf-8">
-    <title>Ardanza</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ardanza - Inicio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" type="text/css"
+	href="bootstrap/css/bootstrap.min.css" />
+<link href="css/main.css" rel="stylesheet">
+<link href="css/font-style.css" rel="stylesheet">
+<link href="css/register.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Le styles -->
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
-    
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/font-style.css" rel="stylesheet">
-    <link href="css/register.css" rel="stylesheet">
+<style type="text/css">
+body {
+	padding-top: 60px;
+}
+</style>
+<link href="http://fonts.googleapis.com/css?family=Raleway:400,300"
+	rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans"
+	rel="stylesheet" type="text/css">
+</head>
+<body>
 
-	<script type="text/javascript" src="js/jquery.js"></script>    
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	<!-- MENU NAVEGACION -->
 
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-    </style>
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    
-  	<!-- Google Fonts call. Font Used Open Sans & Raleway -->
-	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
-  	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-	</head>
-  <body>
-
-  	<!-- NAVIGATION MENU -->
-
-    <div class="navbar-nav navbar-inverse navbar-fixed-top">
-        <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html"><img src="images/logo30.png" alt=""></a>
-        </div> 
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index.php"><i class="icon-home icon-white"></i>Inicio  </a></li>                            
-              <li><a href="index2.php"><i class="icon-th icon-white"></i> Alumnos</a></li>
-              <li><a href="../logout.php"><i class="icon-lock icon-white"></i> Cerrar sesión</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-
-        	<div class="col-lg-12">
-        		
-        		<div class="register-info-wraper">
-        			<div id="register-info">
-        				<div class="cont2">
-        					<div class="thumbnail">
-								<img src="images/face.jpg" alt="Marcel Newman" class="img-circle">
-							</div><!-- /thumbnail -->
+	<div class="navbar-nav navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"><img
+					src="images/logo30.png" alt=""></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.php"><i
+							class="icon-home icon-white"></i>Inicio </a></li>
+					<li><a href="index2.php"><i class="icon-th icon-white"></i> Alumnos</a></li>
+					<li><a href="../logout.php"><i class="icon-lock icon-white"></i>
+							Cerrar sesión</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="register-info-wraper">
+					<div id="register-info">
+						<div class="cont2">
+							<div class="thumbnail">
+								<img src="images/face.jpg" alt="Marcel Newman"
+									class="img-circle">
+							</div>
+							<!-- /thumbnail -->
 							<h2><?= $user['email'];?></h2>
-        				</div>
-        				<div class="row">
-        					<div class="col-lg-3">
-        						<div class="cont3">
-        							<p><ok>Username:</ok> <?= $user['email'];?></p>
-        							<p><ok>Tipo :</ok> <?= $user['tipo'];?></p>
-        							<p><ok>id:</ok> <?= $user['id'];?></p>
-        						</div>
-        					</div>
-        					<div class="col-lg-3">
-        						<div class="cont3">
-        						<p><ok>Registered:</ok> April 9, 2010</p>
-        						<p><ok>Last Login:</ok> January 29, 2013</p>
-        						<p><ok>Phone:</ok> +34 619 663553</p>
-        						<p><ok>Mobile</ok> +34 603 093384</p>
-        						</div>
-        					</div>
-        				</div><!-- /inner row -->
+						</div>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="cont3">
+									<p>
+										<ok>Username:</ok> <?= $user['email'];?></p>
+									<p>
+										<ok>Tipo :</ok> <?= $user['tipo'];?></p>
+									<p>
+										<ok>id:</ok> <?= $user['id'];?></p>
+								</div>
+							</div>
+						</div>
+						<!-- /inner row -->
 						<hr>
 						<div class="cont2">
-							<h2>Choose Your Option</h2>
+							<h2>ELIGE UNA OPCIÓN</h2>
 						</div>
 						<br>
-							<div class="info-user2">
-								<span aria-hidden="true" class="li_user fs1"></span>
-								<span aria-hidden="true" class="li_settings fs1"></span>
-								<span aria-hidden="true" class="li_mail fs1"></span>
-								<span aria-hidden="true" class="li_key fs1"></span>
-								<span aria-hidden="true" class="li_lock fs1"></span>
-								<span aria-hidden="true" class="li_pen fs1"></span>
-							</div>
+						<div class="info-user2">
+							<span aria-hidden="true" class="li_user fs1"></span> <span
+								aria-hidden="true" class="li_settings fs1"></span> <span
+								aria-hidden="true" class="li_mail fs1"></span> <span
+								aria-hidden="true" class="li_key fs1"></span> <span
+								aria-hidden="true" class="li_lock fs1"></span> <span
+								aria-hidden="true" class="li_pen fs1"></span>
+						</div>
+					</div>
+				</div>
 
-        				
-        			</div>
-        		</div>
+			</div>
 
-        	</div>
-<!-- 
-        	<div class="col-sm-6 col-lg-6">
-        		<div id="register-wraper">
-        		    <form id="register-form" class="form">
-        		        <legend>User Register</legend>
-        		    
-        		        <div class="body">
-        		        	
-    		        		<label for="name">First name</label>
-    		        		<input name="name" class="input-huge" type="text">
-        		  
-    		        		<label for="surname">Last name</label>
-    		        		<input name="surname" class="input-huge" type="text">
-        		       
-        		        	<label>Username</label>
-        		        	<input class="input-huge" type="text">
-        		       
-        		        	<label>E-mail</label>
-        		        	<input class="input-huge" type="text">
-        		        
-        		        	<label>Password</label>
-        		        	<input class="input-huge" type="text">
+			<div class="col-lg-6">
+				<div id="register-wraper">
+					<form id="register-form" class="form">
+						<legend>Nuevo usuario</legend>
+						<div class="body">
+							<label>USUARIO</label> <input class="input-huge" type="text"
+								id="email" name="email">
+							<hr>
+							<label>Password</label> <input class="input-huge" type="text"
+								id="password" name="password">
+							<hr>
+							<label>Tipo de usuario</label> <br> <select id="tipo" name="tipo">
+								<option value="1">Administrador</option>
+								<option value="2">Estudiante clases</option>
+								<option value="3">Estudiante cursos</option>
+							</select> 
+							<br> 
+							<select id="estatus" name="estatus">
+								<option value="administrador">admin</option>
+								<option value="adeudo">adeuda</option>
+								<option value="noAdeudo">no adeuda</option>
+								<option value="curso">cursos</option>
+							</select>
+							<hr>
+							<br>
+						</div>
 
-        		        </div>
-        		
-        		        <div class="footer">
-        		            <label class="checkbox inline">
-        		                <input type="checkbox" id="inlineCheckbox1" value="option1"> I agree with the terms &amp; conditions
-        		            </label>
-        		            <button type="submit" class="btn btn-success">Register</button>
-        		        </div>
-        		    </form>
-        		</div>
-        	</div>
+						<div class="footer">
+							<button type="submit" class="btn btn-success">Registro</button>
+						</div>
+					</form>
+				</div>
+			</div>
 
-        </div>
-    </div>
-        -->
-	<!-- /container -->
+		</div>
+	</div>
 	<div id="footerwrap">
 		<footer class="clearfix"></footer>
 		<div class="container">
@@ -180,16 +167,16 @@ if (isset($_SESSION['user_id'])) {
 	</div>
 	<?php else: ?>
 	
-	<?php 
-	echo '<script>
+	<?php
+    echo '<script>
        function alerta(){
            swal("SESION CERRADA", "En un momento te redireccionamos", "warning")
             window.location.href = "/admin";
        }
        alerta();
        </script>';
-	
-	?>
+
+    ?>
 	<div id="footerwrap">
 		<footer class="clearfix"></footer>
 		<div class="container">

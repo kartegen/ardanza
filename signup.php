@@ -100,10 +100,10 @@
 							</tr>
 							<tr>
 								<td colspan="2"><select id="estatus" name="estatus">
-										<option value="1">admin</option>
+										<option value="administrador">admin</option>
 										<option value="adeudo">adeuda</option>
 										<option value="noAdeudo">no adeuda</option>
-										<option value="4">cursos</option>
+										<option value="curso">cursos</option>
 								</select></td>
 							</tr>
 							<tr>

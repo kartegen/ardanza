@@ -23,8 +23,8 @@ if (isset($_SESSION['user_id'])) {
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8? />
-<title>ARDANZA - Centro de Formación Dancística y Cultural</title>
+<meta http-equiv=ï¿½Content-Typeï¿½ content=ï¿½text/html; charset=utf-8? />
+<title>ARDANZA - Centro de FormaciÃ³n DancÃ­stica y Cultural</title>
 
 <!-- SWAL -->
 <link rel="stylesheet"
@@ -98,10 +98,10 @@ if (isset($_SESSION['user_id'])) {
 							<div class="d-flex flex-wrap align-content-center">
 								<a href="#"><img src="images/logo.png" alt="logo" /></a>
 								<p>Desarrollar e impulsar a bailarines por medio de diversas
-									disciplinas dancísticas a través de la metodología
-									teórico-práctica.</p>
+									disciplinas dancÃ­sticas a travÃ©s de la metodologÃ­a
+									teÃ³rico-prÃ¡ctica.</p>
 								<p>
-									&copy; 2020 RED.deploy<br> Diseño <a
+									&copy; 2020 RED.deploy<br> DiseÃ±o <a
 										href="https://www.facebook.com/luis.rodriguezmedellin/"
 										target="_blank">kartegen</a>.
 								</p>
@@ -146,9 +146,9 @@ if (isset($_SESSION['user_id'])) {
 						</div>
 						<div class="col-md-3 footer3 wow bounceInRight"
 							data-wow-delay=".25s">
-							<h5>DIRECCIÓN</h5>
+							<h5>DIRECCIÃ“N</h5>
 							<p>Av. Sierra Madre No. 202, local D , Esq. Sierra Nevada, Fracc.
-								Colinas del Padre 4ta sección 98085 Zacatecas, México</p>
+								Colinas del Padre 4ta secciÃ³n 98085 Zacatecas, MÃ©xico</p>
 							<h5>TELEFONO</h5>
 							<p>4921285833</p>
 							<h5>EMAIL</h5>

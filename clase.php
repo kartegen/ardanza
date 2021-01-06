@@ -23,8 +23,8 @@ if (isset($_SESSION['user_id'])) {
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8? />
-<title>ARDANZA - Centro de Formación Dancística y Cultural</title>
+<meta http-equiv=ï¿½Content-Typeï¿½ content=ï¿½text/html; charset=utf-8? />
+<title>ARDANZA - Centro de FormaciÃ³n DancÃ­stica y Cultural</title>
 
 <!-- SWAL -->
 <link rel="stylesheet"

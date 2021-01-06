@@ -23,7 +23,7 @@ if (isset($_SESSION['user_id'])) {
 <html>
 <head>
 <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
-<title>Ardanza - Dashboard</title>
+<title>Ardanza - Alumnos</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 
@@ -64,13 +64,6 @@ body {
 }
 </style>
 
-<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-
-<!-- Google Fonts call. Font Used Open Sans & Raleway -->
 <link href="http://fonts.googleapis.com/css?family=Raleway:400,300"
 	rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Open+Sans"
@@ -171,7 +164,7 @@ body {
 							<ul class="mail">								
 								<?php
                                     $data = mysqli_connect("localhost", "root", "", "ardanza") or die('Error de conexion: ' . mysqli_error());
-                                    $busc = mysqli_query($data, "SELECT email,estatus,tipo FROM users ");
+                                    $busc = mysqli_query($data, "SELECT email,estatus,tipo FROM users");
                                     while ($row = mysqli_fetch_array($busc)) {
                                         echo "<li><i class='unread'></i><p class='sender'>" . $row[0] . "</p><p class='message'><strong>Estatus: " . $row[1] . "</strong> Tipo usuario: " . $row[2] . "</p>
                                                 <div class='actions'>
@@ -185,11 +178,9 @@ body {
                                     mysqli_close($data);
                                    ?>								
 							</ul>
-							<!-- Inicio tabla -->
 						</div>
 					</div>
 				</div>
-				<!-- /dash-unit -->
 			</div>
 		</div>
 	</div>

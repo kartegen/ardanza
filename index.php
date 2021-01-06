@@ -52,7 +52,7 @@ if (isset($_SESSION['user_id'])) {
             echo '<script>
        function alerta(){
            swal("BIENVENIDO ADMINISTRADOR", "En un momento te redireccionamos", "success")
-            window.location.href = "/admin";
+            window.location.href = "/admin/index.php";
        }
        alerta();
        </script>';
