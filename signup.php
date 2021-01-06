@@ -11,7 +11,7 @@
       $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
       $stmt->bindParam(':password', $password);
       $stmt->bindParam(':tipo', $_POST['tipo']);
-      $stmt->bindParam(':tipo', $_POST['estatus']);
+      $stmt->bindParam(':estatus', $_POST['estatus']);
     if ($stmt->execute()) {
         echo '<script language="javascript">alert("Registro exitoso");window.location.href="index.php"</script>';
         
@@ -99,7 +99,7 @@
 								</select></td>
 							</tr>
 							<tr>
-								<td colspan="2"><select id="estatus" name="tipo">
+								<td colspan="2"><select id="estatus" name="estatus">
 										<option value="1">admin</option>
 										<option value="adeudo">adeuda</option>
 										<option value="noAdeudo">no adeuda</option>
