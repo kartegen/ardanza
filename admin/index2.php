@@ -4,7 +4,7 @@ session_start();
 require 'database.php';
 
 if (isset($_SESSION['user_id'])) {
-    $records = $conn->prepare('SELECT id, email, tipo, password FROM users WHERE id = :id');
+    $records = $conn->prepare('SELECT id, email, tipo, estatus password FROM users WHERE id = :id');
     $records->bindParam(':id', $_SESSION['user_id']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -16,194 +16,184 @@ if (isset($_SESSION['user_id'])) {
     }
 }
 ?>
-
-
-<?php if(!empty($user)): ?>
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
-<title>Ardanza - Alumnos</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARDANZA | Danza y cultura</title>
 
-<link rel="stylesheet" type="text/css"
-	href="bootstrap/css/bootstrap.min.css" />
-
-<link href="css/main.css" rel="stylesheet">
-<link href="css/font-style.css" rel="stylesheet">
-<link href="css/flexslider.css" rel="stylesheet">
-
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
-<script type="text/javascript" src="js/lineandbars.js"></script>
-
-<script type="text/javascript" src="js/dash-charts.js"></script>
-<script type="text/javascript" src="js/gauge.js"></script>
-
-<!-- NOTY JAVASCRIPT -->
-<script type="text/javascript" src="js/noty/jquery.noty.js"></script>
-<script type="text/javascript" src="js/noty/layouts/top.js"></script>
-<script type="text/javascript" src="js/noty/layouts/topLeft.js"></script>
-<script type="text/javascript" src="js/noty/layouts/topRight.js"></script>
-<script type="text/javascript" src="js/noty/layouts/topCenter.js"></script>
-
-<!-- You can add more layouts if you want -->
-<script type="text/javascript" src="js/noty/themes/default.js"></script>
-<!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
-<script type="text/javascript"
-	src="http://code.highcharts.com/highcharts.js"></script>
-<script src="js/jquery.flexslider.js" type="text/javascript"></script>
-
-<script type="text/javascript" src="js/admin.js"></script>
-
-<style type="text/css">
-body {
-	padding-top: 60px;
-}
-</style>
-
-<link href="http://fonts.googleapis.com/css?family=Raleway:400,300"
-	rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Open+Sans"
-	rel="stylesheet" type="text/css">
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $("#btn-blog-next").click(function () {
-            $('#blogCarousel').carousel('next')
-        });
-        $("#btn-blog-prev").click(function () {
-            $('#blogCarousel').carousel('prev')
-        });
-
-        $("#btn-client-next").click(function () {
-            $('#clientCarousel').carousel('next')
-        });
-        $("#btn-client-prev").click(function () {
-            $('#clientCarousel').carousel('prev')
-        });
-
-    });
-
-    $(window).load(function () {
-
-        $('.flexslider').flexslider({
-            animation: "slide",
-            slideshow: true,
-            start: function (slider) {
-                $('body').removeClass('loading');
-            }
-        });
-    });
-
-</script>
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Tempusdominus Bootstrap 4 -->
+<link rel="stylesheet"
+	href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!-- iCheck -->
+<link rel="stylesheet"
+	href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- JQVMap -->
+<link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="dist/css/adminlte.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet"
+	href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+<!-- Daterange picker -->
+<link rel="stylesheet"
+	href="plugins/daterangepicker/daterangepicker.css">
+<!-- summernote -->
+<link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+<!-- <SWAL -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.js"></script>
 </head>
-<body>
-	<!-- NAVIGATION MENU -->
+<!-- SI EL USUARIO ESTA LOGUEADO -->
+<?php if(!empty($user)): ?>
 
-	<div class="navbar-nav navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index.php"><img
-					src="images/logo30.png" alt=""></a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li ><a href="index.php"><i class="icon-home icon-white"></i> Inicio</a></li>                            
-              		<li class="active"><a href="index2.php"><i class="icon-th icon-white"></i> Alumnos</a></li>
-              		<li><a href="logout.php"><i class="icon-lock icon-white"></i> Cerrar sesión</a></li>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
 
-				</ul>
-			</div>
-			<!--/.nav-collapse -->
-		</div>
-	</div>
+		
 
-	<div class="container">
+		<!-- Navbar -->
+		<nav
+			class="main-header navbar navbar-expand navbar-white navbar-light">
+			<!-- Left navbar links -->
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
+					href="#" role="button"><i class="fas fa-bars"></i></a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a href="index.php"
+					class="nav-link">Inicio</a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a href="index2.php"
+					class="nav-link">Lista de alumnos</a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a href="index3.php"
+					class="nav-link">Alta de alumnos</a></li>
+			</ul>
+		</nav>
+		<!-- /.navbar -->
 
-		<!-- FIRST ROW OF BLOCKS -->
-		<div class="row">
+		<!-- Main Sidebar Container -->
+		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+			<!-- Brand Logo -->
+			<a href="index.php" class="brand-link"> <img
+				src="dist/img/AdminLTELogo.png" alt="Ardanza"
+				class="brand-image img-circle elevation-3" style="opacity: .8"> <span
+				class="brand-text font-weight-light">ARDANZA</span>
+			</a>
 
-			<!-- USER PROFILE BLOCK -->
-			<div class="col-sm-3 col-lg-3">
-				<div class="dash-unit">
-					<dtitle> <?= $user['email'];?></dtitle>
-					<hr>
-					<div class="thumbnail">
-						<img src="images/face80x80.jpg" alt="<?= $user['email'];?>"
-							class="img-circle">
+			<!-- Sidebar -->
+			<div class="sidebar">
+				<!-- Sidebar user panel (optional) -->
+				<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+					<div class="image">
+						<!--           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
 					</div>
-					<!-- /thumbnail -->
-					<h1>Administrador <?= $user['email'];?></h1>
-					<h3>ARDANZA</h3>
-					<br>
-					<div class="info-user">
-						<span aria-hidden="true" class="li_user fs1"></span> <span
-							aria-hidden="true" class="li_settings fs1"></span> <span
-							aria-hidden="true" class="li_mail fs1"></span> <span
-							aria-hidden="true" class="li_key fs1"></span>
+					<div class="info">
+						<a href="#" class="d-block">BIENVENIDO <?= $user['email'];?></a>
 					</div>
 				</div>
+				<!-- Sidebar Menu -->
+				<nav class="mt-2">
+					<ul class="nav nav-pills nav-sidebar flex-column"
+						data-widget="treeview" role="menu" data-accordion="false">
+
+						<li class="nav-item"><a href="#" class="nav-link"> <i
+								class="nav-icon fas fa-edit"></i>
+								<p>
+									ALUMNOS <i class="fas fa-angle-left right"></i>
+								</p>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="index2.php" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>Lista de alumnos</p>
+								</a></li>
+								<li class="nav-item"><a href="index3.php" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>Alta de alumnos</p>
+								</a></li>
+							</ul></li>
+					</ul>
+				</nav>
+				<!-- /.sidebar-menu -->
 			</div>
-			<div class="col-sm-9 col-lg-9">
-				<!-- MAIL BLOCK -->
-				<div class="dash-unit">
-					<dtitle>Alumnos</dtitle>
-					<hr>
-					<div class="framemail">
-						<div class="window">
-							<!-- Inicio tabla -->
-							<ul class="mail">								
-								<?php
-                                    $data = mysqli_connect("localhost", "root", "", "ardanza") or die('Error de conexion: ' . mysqli_error());
-                                    $busc = mysqli_query($data, "SELECT email,estatus,tipo FROM users");
-                                    while ($row = mysqli_fetch_array($busc)) {
-                                        echo "<li><i class='unread'></i><p class='sender'>" . $row[0] . "</p><p class='message'><strong>Estatus: " . $row[1] . "</strong> Tipo usuario: " . $row[2] . "</p>
-                                                <div class='actions'>
-                    			                    <a><img src='http://png-1.findicons.com/files//icons/2232/wireframe_mono/16/undo.png' alt='reply'></a>
-                    			                    <a><img src='http://png-1.findicons.com/files//icons/2232/wireframe_mono/16/star_fav.png' alt='favourite'></a>
-                    			                    <a><img src='http://png-4.findicons.com/files//icons/2232/wireframe_mono/16/tag.png' alt='label'></a>
-                    			                    <a><img src='http://png-4.findicons.com/files//icons/2232/wireframe_mono/16/trash.png' alt='delete'></a>
-                                                </div>
-                                             </li>" ;
-                                    }
-                                    mysqli_close($data);
-                                   ?>								
-							</ul>
+			<!-- /.sidebar -->
+		</aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<div class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0">INICIO</h1>
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">								
+								<li class="breadcrumb-item active">Lista de alumnos</li>
+								<li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+							</ol>
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- /.content-header -->
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="container-fluid">
+					<!-- Small boxes (Stat box) -->
+
+					<!-- /.row -->
+					<!-- Main row -->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Alumnos</h3>
+								</div>
+								<!-- /.card-header -->
+								<div class="card-body">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th style="width: 10px">ID</th>
+												<th>Nombre</th>
+												<th>Estatus</th>
+											</tr>
+										</thead>
+										<tbody>
+                                            <?php
+                                                $data = mysqli_connect("localhost", "root", "", "ardanza") or die('Error de conexion: ' . mysqli_error());
+                                                $busc = mysqli_query($data, "SELECT id,email,estatus,tipo FROM users");
+                                                while ($row = mysqli_fetch_array($busc)) {
+                                                    echo "<tr> <td>" . $row[0] . "</td><td>" . $row[1] . "</td> <td>" . $row[2] . "</td> ";
+                                                }
+                                                mysqli_close($data);
+                                                ?>
+										</tbody>
+									</table>
+								</div>					
+							</div>					
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 		</div>
-	</div>
-	<!-- /container -->
-	<div id="footerwrap">
-		<footer class="clearfix"></footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-lg-12">
-					<p>
-						<img src="images/logo.png" alt="">
-					</p>
-					<p>RED.deploy - Copyright 2020</p>
-				</div>
-
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<?php else: ?>
-	
-	<?php
+<?php else: ?>
+<!-- 	USUARIO NO LOGUEADO -->
+<?php
     echo '<script>
        function alerta(){
            swal("SESION CERRADA", "En un momento te redireccionamos", "warning")
@@ -213,24 +203,63 @@ body {
        </script>';
 
     ?>
-	<div id="footerwrap">
-		<footer class="clearfix"></footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-lg-12">
-					<p>
-						<img src="images/logo.png" alt="">
-					</p>
-					<p>RED.deploy - Copyright 2020</p>
-				</div>
-
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /footerwrap -->
+	
 <?php endif?>
+
+
+ <footer class="main-footer">
+			<strong>Derechos reservados &copy; 2021 <a href="www.ardanza.com.mx">RED.deploy</a>.
+			</strong>
+
+			<div class="float-right d-none d-sm-inline-block">
+				<b>Version</b> 1
+			</div>
+		</footer>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery -->
+	<script src="plugins/jquery/jquery.min.js"></script>
+	<!-- jQuery UI 1.11.4 -->
+	<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+	<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+	<!-- Bootstrap 4 -->
+	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- ChartJS -->
+	<script src="plugins/chart.js/Chart.min.js"></script>
+	<!-- Sparkline -->
+	<script src="plugins/sparklines/sparkline.js"></script>
+	<!-- JQVMap -->
+	<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+	<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+	<!-- jQuery Knob Chart -->
+	<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+	<!-- daterangepicker -->
+	<script src="plugins/moment/moment.min.js"></script>
+	<script src="plugins/daterangepicker/daterangepicker.js"></script>
+	<!-- Tempusdominus Bootstrap 4 -->
+	<script
+		src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+	<!-- Summernote -->
+	<script src="plugins/summernote/summernote-bs4.min.js"></script>
+	<!-- overlayScrollbars -->
+	<script
+		src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="dist/js/adminlte.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="dist/js/demo.js"></script>
+	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+	<script src="dist/js/pages/dashboard.js"></script>
 </body>
 </html>
 </html>

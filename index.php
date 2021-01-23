@@ -52,7 +52,7 @@ if (isset($_SESSION['user_id'])) {
             echo '<script>
        function alerta(){
            swal("BIENVENIDO ADMINISTRADOR", "En un momento te redireccionamos", "success")
-            window.location.href = "/admin/index.php";
+            window.location.href = "/ardanza/admin/index.php";
        }
        alerta();
        </script>';
@@ -61,7 +61,7 @@ if (isset($_SESSION['user_id'])) {
                 echo '<script>
        		function alerta2(){
 				swal("ADEUDO", "En un momento te redireccionamos", "warning")
-				window.location.href = "adeudo.php";				
+				window.location.href = "/ardanza/adeudo.php";				
 			}
 			   alerta2();			   
        		</script>';
@@ -70,24 +70,24 @@ if (isset($_SESSION['user_id'])) {
                 echo '<script>
        		function alerta2(){				
 				swal("BIENVENIDO ALUMNO", "En un momento te redireccionamos", "success")
-				window.location.href = "clase.php";				
+				window.location.href = "/ardanza/clase.php";				
 			}
        		alerta2();
        		</script>';
             }
         } elseif ($user['tipo'] == "3") {
             '<script>
-       function alerta3(){
+       function alerta(){
 		   swal("BIENVENIDO ALUMNO", "En un momento te redireccionamos", "success")
-		   window.location.href = "curso.php";
+		   window.location.href = "/ardanza/curso.php";
        }
-       alerta3()
+       alerta()
        </script>';
         } else {
             '<script>
        function alerta3(){
 		   swal("OCURRIO UN ERROR", "En un momento te redireccionamos", "ERROR")
-		   window.location.href = "login.php";
+		   window.location.href = "/ardanza/login.php";
        }
        alerta3()
        </script>';
@@ -395,20 +395,20 @@ if (isset($_SESSION['user_id'])) {
 					<img class="card-img-top img-fluid wow bounceInUp"
 						data-wow-delay=".25s" src="images/g2.jpg" alt="Card image">
 					<div class="card-body mt-4 wow bounceInDown" data-wow-delay=".25s">
-						<h4 class="card-title">Neon Steps Now (12 a√±os en adelante)</h4>
-						<p class="card-text">El programa Neon Steps Now de Ardanza est√°
-							dise√±ado para j√≥venes de 12 a√±os en adelante, que tengan inter√©s
-							en adquirir bases formativas y t√©cnicas en diversos estilos.
+						<h4 class="card-title">Neon Steps Now (12 aÒos en adelante)</h4>
+						<p class="card-text">El programa Neon Steps Now de Ardanza est·
+							diseÒado para jÛvenes de 12 aÒos en adelante, que tengan inter√©s
+							en adquirir bases formativas y t·cnicas en diversos estilos.
 							Nuestro Programa ONLINE te permite tener clases personalizadas en
 							la comodidad de tu casa, cuidando tu salud y la de tus seres
 							queridos con Instructores profesionales en la Danza.</p>
 						<p class="card-text">Nuestro objetivo principal es desarrollar en
 							los alumnos(as) la capacidad de expresarse corporal y
-							art√≠sticamente de una manera creativa, a trav√©s de la ense√±anza
-							de las bases t√©cnicas de la danza logrando obtener conocimientos
+							art√≠sticamente de una manera creativa, a travÈs de la ense√±anza
+							de las bases t·cnicas de la danza logrando obtener conocimientos
 							de una correcta alineaci√≥n corporal, desarrollo de la fuerza y
-							tonificaci√≥n muscular, desarrollar fluidez en el movimiento,
-							estimular la coordinaci√≥n y desarrollo de las capacidades motoras
+							tonificaci·n muscular, desarrollar fluidez en el movimiento,
+							estimular la coordinaciÛn y desarrollo de las capacidades motoras
 							a trav√©s del acercamiento a diversos estilos de la danza.</p>
 					</div>
 				</div>
@@ -444,10 +444,10 @@ if (isset($_SESSION['user_id'])) {
 					<div class="d-flex flex-wrap align-content-center">
 						<a href="#"><img src="images/logo.png" alt="logo" /></a>
 						<p>Desarrollar e impulsar a bailarines por medio de diversas
-							disciplinas danc√≠sticas a trav√©s de la metodolog√≠a
-							te√≥rico-pr√°ctica.</p>
+							disciplinas danc√≠sticas a travÈs de la metodologÌa
+							teÛrico-pr·ctica.</p>
 						<p>
-							&copy; 2021 RED.deploy<br> Dise√±o <a
+							&copy; 2021 RED.deploy<br> DiseÒo <a
 								href="https://www.facebook.com/luis.rodriguezmedellin/"
 								target="_blank">kartegen</a>.
 						</p>

@@ -16,158 +16,170 @@ if (isset($_SESSION['user_id'])) {
     }
 }
 ?>
-<?php if(!empty($user)): ?>
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Ardanza - Inicio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="stylesheet" type="text/css"
-	href="bootstrap/css/bootstrap.min.css" />
-<link href="css/main.css" rel="stylesheet">
-<link href="css/font-style.css" rel="stylesheet">
-<link href="css/register.css" rel="stylesheet">
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARDANZA | Danza y cultura</title>
 
-<style type="text/css">
-body {
-	padding-top: 60px;
-}
-</style>
-<link href="http://fonts.googleapis.com/css?family=Raleway:400,300"
-	rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Open+Sans"
-	rel="stylesheet" type="text/css">
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Tempusdominus Bootstrap 4 -->
+<link rel="stylesheet"
+	href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!-- iCheck -->
+<link rel="stylesheet"
+	href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- JQVMap -->
+<link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="dist/css/adminlte.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet"
+	href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+<!-- Daterange picker -->
+<link rel="stylesheet"
+	href="plugins/daterangepicker/daterangepicker.css">
+<!-- summernote -->
+<link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+<!-- <SWAL -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.js"></script>
 </head>
-<body>
+<!-- SI EL USUARIO ESTA LOGUEADO -->
+<?php if(!empty($user)): ?>
 
-	<!-- MENU NAVEGACION -->
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
 
-	<div class="navbar-nav navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index.html"><img
-					src="images/logo30.png" alt=""></a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.php"><i
-							class="icon-home icon-white"></i>Inicio </a></li>
-					<li><a href="index2.php"><i class="icon-th icon-white"></i> Alumnos</a></li>
-					<li><a href="../logout.php"><i class="icon-lock icon-white"></i>
-							Cerrar sesión</a></li>
-				</ul>
-			</div>
+		<!-- Preloader -->
+		<div class="preloader">
+			<img src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
+				width="60">
 		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="register-info-wraper">
-					<div id="register-info">
-						<div class="cont2">
-							<div class="thumbnail">
-								<img src="images/face.jpg" alt="Marcel Newman"
-									class="img-circle">
-							</div>
-							<!-- /thumbnail -->
-							<h2><?= $user['email'];?></h2>
-						</div>
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="cont3">
-									<p>
-										<ok>Username:</ok> <?= $user['email'];?></p>
-									<p>
-										<ok>Tipo :</ok> <?= $user['tipo'];?></p>
-									<p>
-										<ok>id:</ok> <?= $user['id'];?></p>
-								</div>
-							</div>
-						</div>
-						<!-- /inner row -->
-						<hr>
-						<div class="cont2">
-							<h2>ELIGE UNA OPCIÓN</h2>
-						</div>
-						<br>
-						<div class="info-user2">
-							<span aria-hidden="true" class="li_user fs1"></span> <span
-								aria-hidden="true" class="li_settings fs1"></span> <span
-								aria-hidden="true" class="li_mail fs1"></span> <span
-								aria-hidden="true" class="li_key fs1"></span> <span
-								aria-hidden="true" class="li_lock fs1"></span> <span
-								aria-hidden="true" class="li_pen fs1"></span>
-						</div>
+
+		<!-- Navbar -->
+		<nav
+			class="main-header navbar navbar-expand navbar-white navbar-light">
+			<!-- Left navbar links -->
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
+					href="#" role="button"><i class="fas fa-bars"></i></a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a href="index.php"
+					class="nav-link">Inicio</a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a href="index2.php"
+					class="nav-link">Lista de alumnos</a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a href="index3.php"
+					class="nav-link">Alta de alumnos</a></li>
+			</ul>
+		</nav>
+		<!-- /.navbar -->
+
+		<!-- Main Sidebar Container -->
+		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+			<!-- Brand Logo -->
+			<a href="index.php" class="brand-link"> <img
+				src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+				class="brand-image img-circle elevation-3" style="opacity: .8"> <span
+				class="brand-text font-weight-light">ARDANZA</span>
+			</a>
+
+			<!-- Sidebar -->
+			<div class="sidebar">
+				<!-- Sidebar user panel (optional) -->
+				<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+					<div class="image">
+						<!--           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
+					</div>
+					<div class="info">
+						<a href="#" class="d-block">BIENVENIDO <?= $user['email'];?></a>
 					</div>
 				</div>
+				<!-- Sidebar Menu -->
+				<nav class="mt-2">
+					<ul class="nav nav-pills nav-sidebar flex-column"
+						data-widget="treeview" role="menu" data-accordion="false">
 
+						<li class="nav-item"><a href="#" class="nav-link"> <i
+								class="nav-icon fas fa-edit"></i>
+								<p>
+									ALUMNOS <i class="fas fa-angle-left right"></i>
+								</p>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="index2.php" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>Lista de alumnos</p>
+								</a></li>
+								<li class="nav-item"><a href="index3.php" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>Alta de alumnos</p>
+								</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+				<!-- /.sidebar-menu -->
 			</div>
+			<!-- /.sidebar -->
+		</aside>
 
-			<div class="col-lg-6">
-				<div id="register-wraper">
-					<form id="register-form" class="form">
-						<legend>Nuevo usuario</legend>
-						<div class="body">
-							<label>USUARIO</label> <input class="input-huge" type="text"
-								id="email" name="email">
-							<hr>
-							<label>Password</label> <input class="input-huge" type="text"
-								id="password" name="password">
-							<hr>
-							<label>Tipo de usuario</label> <br> <select id="tipo" name="tipo">
-								<option value="1">Administrador</option>
-								<option value="2">Estudiante clases</option>
-								<option value="3">Estudiante cursos</option>
-							</select> 
-							<br> 
-							<select id="estatus" name="estatus">
-								<option value="administrador">admin</option>
-								<option value="adeudo">adeuda</option>
-								<option value="noAdeudo">no adeuda</option>
-								<option value="curso">cursos</option>
-							</select>
-							<hr>
-							<br>
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<div class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0">INICIO</h1>
 						</div>
-
-						<div class="footer">
-							<button type="submit" class="btn btn-success">Registro</button>
+						<!-- /.col -->
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Inicio</a></li>
+								<li class="breadcrumb-item active">Ardanza</li>
+							</ol>
 						</div>
-					</form>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
 				</div>
+				<!-- /.container-fluid -->
 			</div>
+			<!-- /.content-header -->
 
-		</div>
-	</div>
-	<div id="footerwrap">
-		<footer class="clearfix"></footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-lg-12">
-					<p>
-						<img src="images/logo.png" alt="">
-					</p>
-					<p>RED.deploy - Copyright 2020</p>
+			<!-- Main content -->
+			<section class="content">
+				<div class="container-fluid">
+					<!-- Small boxes (Stat box) -->
+					
+					<!-- /.row -->
+					<!-- Main row -->
+					<div class="row">
+						<img src="admin.png" width="100%" height="100%" alt="Ardanza" />
+						<!-- right col -->
+					</div>
+					<!-- /.row (main row) -->
 				</div>
-
-			</div>
-			<!-- /row -->
+				<!-- /.container-fluid -->
+			</section>
+			<!-- /.content -->
 		</div>
-		<!-- /container -->
-	</div>
-	<?php else: ?>
-	
-	<?php
+		<!-- /.content-wrapper -->
+ 
+
+
+
+<?php else: ?>
+<!-- 	USUARIO NO LOGUEADO -->
+<?php
     echo '<script>
        function alerta(){
            swal("SESION CERRADA", "En un momento te redireccionamos", "warning")
@@ -177,24 +189,63 @@ body {
        </script>';
 
     ?>
-	<div id="footerwrap">
-		<footer class="clearfix"></footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-lg-12">
-					<p>
-						<img src="images/logo.png" alt="">
-					</p>
-					<p>RED.deploy - Copyright 2020</p>
-				</div>
-
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /footerwrap -->
+	
 <?php endif?>
+
+
+ <footer class="main-footer">
+			<strong>Derechos reservados &copy; 2021 <a href="www.ardanza.com.mx">RED.deploy</a>.
+			</strong>
+
+			<div class="float-right d-none d-sm-inline-block">
+				<b>Version</b> 1
+			</div>
+		</footer>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery -->
+	<script src="plugins/jquery/jquery.min.js"></script>
+	<!-- jQuery UI 1.11.4 -->
+	<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+	<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+	<!-- Bootstrap 4 -->
+	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- ChartJS -->
+	<script src="plugins/chart.js/Chart.min.js"></script>
+	<!-- Sparkline -->
+	<script src="plugins/sparklines/sparkline.js"></script>
+	<!-- JQVMap -->
+	<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+	<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+	<!-- jQuery Knob Chart -->
+	<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+	<!-- daterangepicker -->
+	<script src="plugins/moment/moment.min.js"></script>
+	<script src="plugins/daterangepicker/daterangepicker.js"></script>
+	<!-- Tempusdominus Bootstrap 4 -->
+	<script
+		src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+	<!-- Summernote -->
+	<script src="plugins/summernote/summernote-bs4.min.js"></script>
+	<!-- overlayScrollbars -->
+	<script
+		src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="dist/js/adminlte.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="dist/js/demo.js"></script>
+	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+	<script src="dist/js/pages/dashboard.js"></script>
 </body>
 </html>
 </html>
