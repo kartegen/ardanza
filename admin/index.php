@@ -15,8 +15,7 @@ if (isset($_SESSION['user_id'])) {
         $user = $results;
     }
 }
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -122,9 +121,13 @@ if (isset($_SESSION['user_id'])) {
 										class="far fa-circle nav-icon"></i>
 										<p>Alta de alumnos</p>
 								</a></li>
-							</ul>
-						</li>
+							</ul></li>
 					</ul>
+					<li class="nav-header">Sesion</li>
+					<li class="nav-item"><a href="logout.php" class="nav-link"> <i
+							class="nav-icon far fa-circle text-danger"></i>
+							<p class="text">Cerrar sesion</p>
+					</a></li>
 				</nav>
 				<!-- /.sidebar-menu -->
 			</div>
@@ -159,7 +162,7 @@ if (isset($_SESSION['user_id'])) {
 			<section class="content">
 				<div class="container-fluid">
 					<!-- Small boxes (Stat box) -->
-					
+
 					<!-- /.row -->
 					<!-- Main row -->
 					<div class="row">

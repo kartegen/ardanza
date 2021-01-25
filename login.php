@@ -17,9 +17,9 @@ if (!empty($_POST['email']) && !empty($_POST['password'])&& !empty($_POST['passw
     
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
         $_SESSION['user_id'] = $results['id'];
-        header("Location: /index.php");
+        header("Location: /ardanza/index.php");
     } else {
-        echo '<script language="javascript">alert("Error de autentificacion");window.location.href="login.php"</script>';
+        echo '<script language="javascript">alert("Error de autentificacion");window.location.href="ardanza/login.php"</script>';
     }
 }
 

@@ -66,7 +66,7 @@ if (isset($_SESSION['user_id'])) {
 						<li class="nav-item"><a class="nav-link"> - Bienvenido <?= $user['email'];?>-</a>
 						</li>
 						<li class="nav-item"><a class="nav-link btn btn-danger"
-							href="/logout.php">Logout</a></li>
+							href="/ardanza/logout.php">Logout</a></li>
 					</ul>
 				</div>
 			</div>

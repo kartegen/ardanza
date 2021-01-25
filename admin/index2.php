@@ -120,6 +120,11 @@ if (isset($_SESSION['user_id'])) {
 								</a></li>
 							</ul></li>
 					</ul>
+					<li class="nav-header">Sesión</li>
+					<li class="nav-item"><a href="logout.php" class="nav-link"> <i
+							class="nav-icon far fa-circle text-danger"></i>
+							<p class="text">Cerrar sesion</p>
+					</a></li>
 				</nav>
 				<!-- /.sidebar-menu -->
 			</div>
