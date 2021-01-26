@@ -190,7 +190,7 @@ if (isset($_SESSION['user_id'])) {
                                                     if ($row[2]=="adeudo"){
                                                         echo "<tr class='warning'> <td>" . $row[0] . "</td><td>" . $row[1] . "</td> <td>" . $row[2] . "</td><td><a href='actualiza.php?id=".$row["0"]."'><span class='right badge badge-danger'>Adeuda</span></a></td>";
                                                     }else{
-                                                        echo "<tr class='success' > <td>" . $row[0] . "</td><td>" . $row[1] . "</td> <td>" . $row[2] . "</td><td><a href='#''><span class='right badge badge-success'>No adeuda</span></a></td> ";
+                                                        echo "<tr class='success' > <td>" . $row[0] . "</td><td>" . $row[1] . "</td> <td>" . $row[2] . "</td><td><a href='actualiza2.php?id=".$row["0"]."'><span class='right badge badge-danger'>No ADEUDA</span></a></td>";
                                                     }
                                                 }
                                                 mysqli_close($data);

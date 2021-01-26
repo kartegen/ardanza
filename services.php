@@ -3,8 +3,8 @@
 class Services{
     private $con;
     private $dbhost="localhost";
-    private $dbuser="root";
-    private $dbpass="";
+    private $dbuser="rootardanza";
+    private $dbpass="qwerty123";
     private $dbname="ardanza";
     function __construct(){
         $this->connect_db();
