@@ -169,6 +169,38 @@ if (isset($_SESSION['user_id'])) {
 						<img src="admin.png" width="100%" height="100%" alt="Ardanza" />
 						<!-- right col -->
 					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Mensajes</h3>
+								</div>
+								<!-- /.card-header -->
+								<div class="card-body">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th style="width: 10px">ID</th>
+												<th>Nombre</th>
+												<th>Correo</th>
+												<th>Mensaje</th>
+											</tr>
+										</thead>
+										<tbody>
+                                            <?php
+                                                $data = mysqli_connect("localhost", "root", "", "ardanza") or die('Error de conexion: ' . mysqli_error());
+                                                $busc = mysqli_query($data, "SELECT	idMessage,name,email,message FROM messages ORDER BY idMessage DESC");
+                                                while ($row = mysqli_fetch_array($busc)) {
+                                                    echo "<tr> <td>" . $row[0] . "</td><td>" . $row[1] . "</td> <td>" . $row[2] . "</td><td> ". $row[3] ."</td>";
+                                                }
+                                                mysqli_close($data);
+                                                ?>
+										</tbody>
+									</table>
+								</div>					
+							</div>					
+						</div>
+					</div>
 					<!-- /.row (main row) -->
 				</div>
 				<!-- /.container-fluid -->

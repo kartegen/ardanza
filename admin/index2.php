@@ -52,6 +52,9 @@ if (isset($_SESSION['user_id'])) {
 <!-- <SWAL -->
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <!-- SI EL USUARIO ESTA LOGUEADO -->
 <?php if(!empty($user)): ?>
@@ -176,6 +179,7 @@ if (isset($_SESSION['user_id'])) {
 												<th style="width: 10px">ID</th>
 												<th>Nombre</th>
 												<th>Estatus</th>
+												<th style="width: 10px">Acción</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -183,7 +187,11 @@ if (isset($_SESSION['user_id'])) {
                                                 $data = mysqli_connect("localhost", "root", "", "ardanza") or die('Error de conexion: ' . mysqli_error());
                                                 $busc = mysqli_query($data, "SELECT id,email,estatus,tipo FROM users");
                                                 while ($row = mysqli_fetch_array($busc)) {
-                                                    echo "<tr> <td>" . $row[0] . "</td><td>" . $row[1] . "</td> <td>" . $row[2] . "</td> ";
+                                                    if ($row[2]=="adeudo"){
+                                                        echo "<tr class='warning'> <td>" . $row[0] . "</td><td>" . $row[1] . "</td> <td>" . $row[2] . "</td><td><a href='actualiza.php?id=".$row["0"]."'><span class='right badge badge-danger'>Adeuda</span></a></td>";
+                                                    }else{
+                                                        echo "<tr class='success' > <td>" . $row[0] . "</td><td>" . $row[1] . "</td> <td>" . $row[2] . "</td><td><a href='#''><span class='right badge badge-success'>No adeuda</span></a></td> ";
+                                                    }
                                                 }
                                                 mysqli_close($data);
                                                 ?>

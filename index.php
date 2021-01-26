@@ -191,6 +191,7 @@ if (isset($_SESSION['user_id'])) {
 						<div class="card-img-overlay">
 							<p>¬°Tus clases de danza nunca pudieron estar mejor!</p>
 							<p>COMPARTE CLASE CON COMPA√ëEROS DE TODO M√âXICO</p>
+							<tr>
 							<hr>
 						</div>
 						<img src="images/gym-girls.jpg" alt="girls in gym"
@@ -395,20 +396,20 @@ if (isset($_SESSION['user_id'])) {
 					<img class="card-img-top img-fluid wow bounceInUp"
 						data-wow-delay=".25s" src="images/g2.jpg" alt="Card image">
 					<div class="card-body mt-4 wow bounceInDown" data-wow-delay=".25s">
-						<h4 class="card-title">Neon Steps Now (12 aÒos en adelante)</h4>
-						<p class="card-text">El programa Neon Steps Now de Ardanza est·
-							diseÒado para jÛvenes de 12 aÒos en adelante, que tengan inter√©s
-							en adquirir bases formativas y t·cnicas en diversos estilos.
+						<h4 class="card-title">Neon Steps Now (12 a√±os en adelante)</h4>
+						<p class="card-text">El programa Neon Steps Now de Ardanza est√°
+							dise√±ado para j√≥venes de 12 a√±os en adelante, que tengan inter√©s
+							en adquirir bases formativas y t√©cnicas en diversos estilos.
 							Nuestro Programa ONLINE te permite tener clases personalizadas en
 							la comodidad de tu casa, cuidando tu salud y la de tus seres
 							queridos con Instructores profesionales en la Danza.</p>
 						<p class="card-text">Nuestro objetivo principal es desarrollar en
 							los alumnos(as) la capacidad de expresarse corporal y
-							art√≠sticamente de una manera creativa, a travÈs de la ense√±anza
-							de las bases t·cnicas de la danza logrando obtener conocimientos
+							art√≠sticamente de una manera creativa, a trav√©s de la ense√±anza
+							de las bases t√©cnicas de la danza logrando obtener conocimientos
 							de una correcta alineaci√≥n corporal, desarrollo de la fuerza y
-							tonificaci·n muscular, desarrollar fluidez en el movimiento,
-							estimular la coordinaciÛn y desarrollo de las capacidades motoras
+							tonificaci√≥n muscular, desarrollar fluidez en el movimiento,
+							estimular la coordinaci√≥n y desarrollo de las capacidades motoras
 							a trav√©s del acercamiento a diversos estilos de la danza.</p>
 					</div>
 				</div>
@@ -444,10 +445,10 @@ if (isset($_SESSION['user_id'])) {
 					<div class="d-flex flex-wrap align-content-center">
 						<a href="#"><img src="images/logo.png" alt="logo" /></a>
 						<p>Desarrollar e impulsar a bailarines por medio de diversas
-							disciplinas danc√≠sticas a travÈs de la metodologÌa
-							teÛrico-pr·ctica.</p>
+							disciplinas danc√≠sticas a trav√©s de la metodolog√≠a
+							te√≥rico-pr√°ctica.</p>
 						<p>
-							&copy; 2021 RED.deploy<br> DiseÒo <a
+							&copy; 2021 RED.deploy<br> Dise√±o <a
 								href="https://www.facebook.com/luis.rodriguezmedellin/"
 								target="_blank">kartegen</a>.
 						</p>
@@ -456,27 +457,24 @@ if (isset($_SESSION['user_id'])) {
 				<div class="col-md-6 footer2 wow bounceInUp" data-wow-delay=".25s"
 					id="contact">
 					<div class="form-box">
+					<form method="post" action="message.php">
 						<h4>CONTACTANOS</h4>
 						<table class="table table-responsive d-table">
 							<tr>
-								<td><input type="text" class="form-control pl-0"
-									placeholder="NOMBRE" /></td>
-								<td><input type="email" class="form-control pl-0"
-									placeholder="EMAIL" /></td>
+								<td><input type="text" name="name"
+									id="name" required></td>
+								<td><input type="email"
+									name="email" id="email" required></td>
 							</tr>
+							<tr>
+								<td colspan="2"></td>
+							</tr>							
 							<tr>
 								<td colspan="2"></td>
 							</tr>
 							<tr>
-								<td colspan="2"><input type="text" class="form-control pl-0"
-									placeholder="DIRECCION" /></td>
-							</tr>
-							<tr>
-								<td colspan="2"></td>
-							</tr>
-							<tr>
-								<td colspan="2"><input type="text" class="form-control pl-0"
-									placeholder="MENSAJE" /></td>
+								<td colspan="2"><input class="col-md-12" type="text" name="message" id="message"
+									placeholder="MENSAJE" required/></td>
 							</tr>
 							<tr>
 								<td colspan="2"></td>
@@ -486,7 +484,9 @@ if (isset($_SESSION['user_id'])) {
 										class="btn btn-dark">ENVIAR</button></td>
 							</tr>
 						</table>
+							</form>
 					</div>
+				
 				</div>
 				<div class="col-md-3 footer3 wow bounceInRight"
 					data-wow-delay=".25s">
