@@ -30,67 +30,7 @@ class Services{
             return false;
         }
     }
-    public function saveCourse($courseName,$courseEmail,$phoneNumber){
-        $sql = "INSERT INTO `Courses` ( `courseName`, `courseEmail`, `phoneNumber`) 
-            VALUES ('$courseName', '$courseEmail', '$phoneNumber')";
-        $res = mysqli_query($this->con, $sql);
-        if($res){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    public function saveUser($nameUser,$firstAp,$secondAp,$phoneUser,$pass){
-        $sql = "INSERT INTO `Users` ( 'nameUser','firstAp','secondAp','phoneUser','pass') 
-            VALUES ( '$nameUser','$firstAp','$secondAp','$phoneUser','$pass')";
-        $res = mysqli_query($this->con, $sql);
-        if($res){
-            return true;
-        }else{
-            return false;
-        }
-    }
     
-    public function getId($id){
-        $sql = "SELECT * FROM user where idUser='$id'";
-        $res = mysqli_query($this->con, $sql);
-        $return = mysqli_fetch_object($res );
-        return $return ;
-    }
-    
-    public function getUser($userName){
-        $sql = "SELECT * FROM user where nameUser='$userName'";
-        $res = mysqli_query($this->con, $sql);
-        $return = mysqli_fetch_object($res );
-        return $return ;
-    }
-    
-    public function getPass($pass){
-        $sql = "SELECT * FROM user where nameUser='$pass'";
-        $res = mysqli_query($this->con, $sql);
-        $return = mysqli_fetch_object($res );
-        return $return ;
-    }
-    
-    public function update($nameUser,$firstAp,$secondAp,$phoneUser,$pass, $id){
-        $sql = "UPDATE users SET nameUser='$nameUser', firstAp='$firstAp', secondAp='$secondAp', phoneUser='$phoneUser', pass='$pass' WHERE id=$id";
-        $res = mysqli_query($this->con, $sql);
-        if($res){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
-    public function delete($id){
-        $sql = "DELETE FROM users WHERE id=$id";
-        $res = mysqli_query($this->con, $sql);
-        if($res){
-            return true;
-        }else{
-            return false;
-        }
-    }
     
 }
 ?>

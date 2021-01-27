@@ -188,7 +188,7 @@ if (isset($_SESSION['user_id'])) {
 										</thead>
 										<tbody>
                                             <?php
-                                                $data = mysqli_connect("localhost", "root", "", "ardanza") or die('Error de conexion: ' . mysqli_error());
+                                                $data = mysqli_connect("localhost", "rootardanza", "qwerty123", "ardanza") or die('Error de conexion: ' . mysqli_error());
                                                 $busc = mysqli_query($data, "SELECT	idMessage,name,email,message FROM messages ORDER BY idMessage DESC");
                                                 while ($row = mysqli_fetch_array($busc)) {
                                                     echo "<tr> <td>" . $row[0] . "</td><td>" . $row[1] . "</td> <td>" . $row[2] . "</td><td> ". $row[3] ."</td>";

@@ -184,7 +184,7 @@ if (isset($_SESSION['user_id'])) {
 										</thead>
 										<tbody>
                                             <?php
-                                                $data = mysqli_connect("localhost", "root", "", "ardanza") or die('Error de conexion: ' . mysqli_error());
+                                                $data = mysqli_connect("localhost", "rootardanza", "qwerty123", "ardanza") or die('Error de conexion: ' . mysqli_error());
                                                 $busc = mysqli_query($data, "SELECT id,email,estatus,tipo FROM users");
                                                 while ($row = mysqli_fetch_array($busc)) {
                                                     if ($row[2]=="adeudo"){
