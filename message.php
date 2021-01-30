@@ -17,7 +17,7 @@ if (isset($_POST) && ! empty($_POST)) {
     } else {
         echo "<script>
                 alert('No se pudo enviar el mensaje');
-                
+                window.location= '/ardanza/index.php'
     </script>";}
 }
 ?>

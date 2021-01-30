@@ -12,6 +12,10 @@ class Services{
     public function connect_db(){
         $this->con = mysqli_connect($this->dbhost, $this->dbuser, $this->dbpass, $this->dbname);
         if(mysqli_connect_error()){
+            echo "<script>
+                alert('Error en la conexion a la base datos');
+                window.location= '/ardanza/index.php'
+    </script>";
             die("Conexión a la DB no se relizó " . mysqli_connect_error() . mysqli_connect_errno());
         }
     }
