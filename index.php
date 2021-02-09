@@ -331,7 +331,7 @@ if (isset($_SESSION['user_id'])) {
 						<button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
 					</div>
 				</div>
-				<img src="images/luzCurr.png" width="auto" height="auto" alt="Luz Mas" />
+				<img src="images/luzCurr.jpg" width="auto" height="auto" alt="Luz Mas" />
 			</div>
 <!-- 			MODAL 4 -->
 			<div class="modal fullscreen-modal fade col-lg-12" id="modalNadia"
